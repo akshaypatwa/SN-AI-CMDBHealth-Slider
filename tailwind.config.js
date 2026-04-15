@@ -17,6 +17,7 @@ export default {
         float: 'float 6s ease-in-out infinite',
         scanline: 'scanline 2s linear infinite',
         ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+        typewriter: 'typewriter 3s steps(44) forwards 2.5s',
       },
       keyframes: {
         fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
@@ -24,6 +25,7 @@ export default {
         slideRight: { '0%': { opacity: '0', transform: 'translateX(32px)' }, '100%': { opacity: '1', transform: 'translateX(0)' } },
         float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
         scanline: { '0%': { transform: 'translateY(-100%)' }, '100%': { transform: 'translateY(500%)' } },
+        typewriter: { '0%': { width: '0%' }, '100%': { width: '100%' } },
       },
     },
   },
