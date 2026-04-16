@@ -152,69 +152,95 @@ export default function Slide3LiveDemo() {
           <div className="flex flex-col items-center justify-center h-full w-full relative overflow-hidden bg-slate-50 dark:bg-[#02050A] transition-colors p-8">
             <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,#111827_0%,#000_100%)] opacity-80" />
             
-            <div className="flex items-center justify-center w-full relative z-10 gap-x-6">
+            {/* Strict Grid Layout for perfect pipeline alignment */}
+            <div className="grid grid-cols-[330px_minmax(180px,1fr)_280px] w-full max-w-[1100px] items-center relative z-10 gap-x-6 gap-y-12">
               
-              {/* Node 1: Miniaturized ServiceNow Form Mockup */}
-              <div className="w-[380px] bg-white dark:bg-[#1C202C] border border-slate-200 dark:border-slate-700/80 rounded-lg overflow-hidden shadow-2xl flex flex-col font-sans transition-colors duration-500 relative shrink-0 scale-90">
-                <div className="bg-[#E4E6EB] dark:bg-[#2B313F] h-8 flex items-center justify-between px-3 border-b border-slate-300 dark:border-slate-800">
-                    <span className="font-bold text-[10px] text-slate-800 dark:text-slate-100">HREC-10901</span>
-                </div>
-                <div className="p-4 bg-white dark:bg-[#1C202C]">
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div>
-                        <label className="block text-[9px] font-bold text-slate-600 dark:text-slate-400 mb-1">Configuration Item</label>
-                        <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[10px] text-slate-800 dark:text-slate-200 flex items-center">US-EAST-DB-001</div>
-                      </div>
-                      <div>
-                        <label className="block text-[9px] font-bold text-slate-600 dark:text-slate-400 mb-1 border-l-[2px] border-amber-500 pl-1.5">Data Gap Reason</label>
-                        <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[10px] text-amber-600 dark:text-amber-400 flex items-center">Orphaned CI</div>
-                      </div>
-                    </div>
-                    {/* The LIVE AI Typing Field */}
-                    <div className="border-t border-slate-100 dark:border-slate-700/50 pt-3">
-                        <label className="block text-[9px] font-bold text-emerald-600 dark:text-emerald-400 mb-1.5 flex items-center gap-1.5"><Sparkles size={10}/> AI Recommended Action</label>
-                        <div className="w-full h-24 bg-emerald-50/50 dark:bg-[#13161F] border border-emerald-200 dark:border-emerald-500/50 rounded overflow-hidden p-2 text-xs relative">
-                           {/* Using CSS animation to mimic typing effect specifically synced to timeline */}
-                           <p className="text-emerald-800 dark:text-emerald-400 font-mono whitespace-normal animate-typewriter overflow-hidden h-full inline-block">
-                             Trigger a targeted scan. CI never confirmed directly within scope. Recommend automated retirement workflow.
-                           </p>
+              {/* === ROW 1: TOP FORM -> LLM === */}
+              {/* Form 1 (Pre-Analysis) */}
+              <div className="col-start-1 row-start-1 flex justify-end">
+                <div className="w-[320px] bg-white dark:bg-[#1C202C] border border-slate-200 dark:border-slate-700/80 rounded-lg overflow-hidden shadow-xl flex flex-col font-sans relative transition-transform hover:-translate-y-1 cursor-default">
+                  <div className="absolute -top-3 left-4 bg-indigo-500 text-white text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded shadow-sm z-10">Original Form Data</div>
+                  <div className="bg-[#E4E6EB] dark:bg-[#2B313F] h-7 flex items-center justify-between px-3 border-b border-slate-300 dark:border-slate-800">
+                      <span className="font-bold text-[9px] text-slate-800 dark:text-slate-100">HREC-10901</span>
+                  </div>
+                  <div className="p-3 bg-white dark:bg-[#1C202C]">
+                      <div className="grid grid-cols-2 gap-3 mb-1">
+                        <div>
+                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5">Configuration Item</label>
+                          <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[9px] text-slate-800 dark:text-slate-200 flex items-center">US-EAST-DB-001</div>
                         </div>
-                    </div>
+                        <div>
+                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5 border-l-[2px] border-amber-500 pl-1">Data Gap Reason</label>
+                          <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[9px] text-amber-600 dark:text-amber-400 flex items-center">Orphaned CI</div>
+                        </div>
+                      </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Connecting Scripts Flow (Center) */}
-              <div className="flex-1 flex flex-col gap-12 relative min-w-[200px]">
-                {/* Outgoing (Data to LLM) */}
-                <div className="relative">
-                  <p className="absolute -top-7 left-1/2 -translate-x-1/2 text-[10px] text-indigo-600 dark:text-cyan-400 uppercase tracking-widest font-bold whitespace-nowrap bg-white/80 dark:bg-transparent px-2 py-0.5 rounded shadow-sm dark:shadow-none">1. Scripts Extract Form Data</p>
-                  <div className="h-2.5 bg-slate-200 dark:bg-[#0A101C] rounded-full relative overflow-hidden shadow-inner border border-slate-300 dark:border-slate-800">
+              {/* Connecting Pipe 1 (Outgoing) */}
+              <div className="col-start-2 row-start-1 flex items-center w-full relative h-[40px]">
+                  <p className="absolute -top-4 left-1/2 -translate-x-1/2 text-[9px] text-indigo-600 dark:text-cyan-400 uppercase tracking-widest font-bold whitespace-nowrap px-1.5 py-0.5">1. Scripts Extract Raw Data</p>
+                  <div className="h-2 w-full bg-slate-200 dark:bg-[#0A101C] rounded-full relative overflow-hidden shadow-inner border border-slate-300 dark:border-slate-800">
                     <div className="absolute w-full h-px bg-slate-300 dark:bg-slate-700 top-1/2 -translate-y-1/2" />
                     <div className="absolute left-0 w-64 h-full bg-indigo-500 dark:bg-cyan-400 rounded-full animate-data-flux shadow-[0_0_15px_#6366f1] dark:shadow-[0_0_50px_#22d3ee,inset_0_0_15px_#fff]" />
                     <div className="absolute left-0 w-32 h-1 bg-white top-1/2 -translate-y-1/2 rounded-full animate-data-flux z-10 shadow-[0_0_10px_#fff]" />
                   </div>
-                </div>
+              </div>
 
-                {/* Incoming (Recommendations to DB) */}
-                <div className="relative">
-                  <p className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] text-emerald-600 dark:text-emerald-400 uppercase tracking-widest font-bold whitespace-nowrap bg-white/80 dark:bg-transparent px-2 py-0.5 rounded shadow-sm dark:shadow-none">2. Type Response into Form Array</p>
-                  <div className="h-2.5 bg-slate-200 dark:bg-[#0A101C] rounded-full relative overflow-hidden shadow-inner border border-slate-300 dark:border-slate-800 scale-x-[-1]">
-                    <div className="absolute w-full h-px bg-slate-300 dark:bg-slate-700 top-1/2 -translate-y-1/2" />
-                    <div className="absolute left-0 w-64 h-full bg-emerald-500 dark:bg-emerald-400 rounded-full animate-data-flux shadow-[0_0_15px_#10b981] dark:shadow-[0_0_50px_#10b981,inset_0_0_15px_#fff]" style={{ animationDelay: '2s' }} />
-                    <div className="absolute left-0 w-32 h-1 bg-white top-1/2 -translate-y-1/2 rounded-full animate-data-flux z-10 shadow-[0_0_10px_#fff]" style={{ animationDelay: '2s' }} />
+              {/* === ROW 2: LLM -> BOTTOM FORM === */}
+              {/* Form 2 (Post-Analysis) */}
+              <div className="col-start-1 row-start-2 flex justify-end">
+                <div className="w-[320px] bg-white dark:bg-[#1C202C] border-2 border-emerald-400 dark:border-emerald-500/80 rounded-lg overflow-hidden shadow-[0_10px_30px_rgba(16,185,129,0.15)] flex flex-col font-sans relative transition-transform hover:-translate-y-1 cursor-default">
+                  <div className="absolute -top-3 left-4 bg-emerald-500 text-white text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded shadow-sm z-10 flex items-center gap-1"><Sparkles size={10} /> AI Enriched Form</div>
+                  <div className="bg-[#E4E6EB] dark:bg-[#2B313F] h-7 flex items-center justify-between px-3 border-b border-slate-300 dark:border-slate-800">
+                      <span className="font-bold text-[9px] text-slate-800 dark:text-slate-100">HREC-10901</span>
+                  </div>
+                  <div className="p-3 bg-white dark:bg-[#1C202C]">
+                      <div className="grid grid-cols-2 gap-3 mb-2.5">
+                        <div>
+                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5">Configuration Item</label>
+                          <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[9px] text-slate-800 dark:text-slate-200 flex items-center">US-EAST-DB-001</div>
+                        </div>
+                        <div>
+                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5 border-l-[2px] border-amber-500 pl-1">Data Gap Reason</label>
+                          <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[9px] text-amber-600 dark:text-amber-400 flex items-center">Orphaned CI</div>
+                        </div>
+                      </div>
+                      <div className="border-t border-slate-100 dark:border-slate-700/50 pt-2">
+                          <label className="block text-[8px] font-bold text-emerald-600 dark:text-emerald-400 mb-1 flex items-center gap-1"><Sparkles size={8}/> AI Recommended Action</label>
+                          <div className="w-full h-16 bg-emerald-50/50 dark:bg-[#13161F] border border-emerald-200 dark:border-emerald-500/50 rounded overflow-hidden p-2 text-[10px] relative">
+                             <p className="text-emerald-800 dark:text-emerald-400 font-mono whitespace-normal animate-typewriter overflow-hidden h-full inline-block">
+                               Trigger a targeted scan. CI never confirmed directly within scope. Recommend automated retirement workflow.
+                             </p>
+                          </div>
+                      </div>
                   </div>
                 </div>
               </div>
 
-              {/* Node 3: LLM Engine Processing */}
-              <div className="w-[300px] bg-white dark:bg-gradient-to-b dark:from-[#1B122A] dark:to-[#0D0814] border border-slate-200 dark:border-purple-500/50 rounded-[2rem] p-8 flex flex-col items-center shadow-lg dark:shadow-[0_30px_80px_rgba(168,85,247,0.3)] z-20 group relative overflow-hidden shrink-0 scale-90">
-                 <div className="absolute inset-0 bg-purple-50 dark:bg-purple-500/20 blur-3xl group-hover:opacity-100 opacity-0 transition-opacity" />
-                 <BrainCircuit className="text-purple-600 dark:text-purple-400 w-24 h-24 mb-6 relative z-10 drop-shadow-md dark:drop-shadow-[0_0_25px_rgba(168,85,247,0.7)] animate-pulse" />
-                 <div className="text-xl font-black text-slate-800 dark:text-white relative z-10 tracking-tight text-center">Enterprise LLM</div>
-                 <div className="text-[10px] font-bold text-white mt-3 relative z-10 bg-purple-600 dark:bg-purple-500/40 px-4 py-1.5 rounded-full border border-purple-500 dark:border-purple-500 uppercase tracking-widest animate-pulse">Inferencing...</div>
+              {/* Connecting Pipe 2 (Incoming) */}
+              <div className="col-start-2 row-start-2 flex items-center w-full relative h-[40px] scale-x-[-1]">
+                  <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[9px] text-emerald-600 dark:text-emerald-400 uppercase tracking-widest font-bold whitespace-nowrap px-1.5 py-0.5 scale-x-[-1]">2. Push Native Recommendations</p>
+                  <div className="h-2 w-full bg-slate-200 dark:bg-[#0A101C] rounded-full relative overflow-hidden shadow-inner border border-slate-300 dark:border-slate-800">
+                    <div className="absolute w-full h-px bg-slate-300 dark:bg-slate-700 top-1/2 -translate-y-1/2" />
+                    <div className="absolute left-0 w-64 h-full bg-emerald-500 dark:bg-emerald-400 rounded-full animate-data-flux shadow-[0_0_15px_#10b981] dark:shadow-[0_0_50px_#10b981,inset_0_0_15px_#fff]" style={{ animationDelay: '1.2s' }} />
+                    <div className="absolute left-0 w-32 h-1 bg-white top-1/2 -translate-y-1/2 rounded-full animate-data-flux z-10 shadow-[0_0_10px_#fff]" style={{ animationDelay: '1.2s' }} />
+                  </div>
               </div>
+
+              {/* === COL 3: LLM Engine (Spans both rows) === */}
+              <div className="col-start-3 row-start-1 row-span-2 flex items-center justify-center pl-4">
+                <div className="w-[280px] bg-white dark:bg-gradient-to-b dark:from-[#1B122A] dark:to-[#0D0814] border border-slate-200 dark:border-purple-500/50 rounded-[2rem] p-8 flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_30px_80px_rgba(168,85,247,0.3)] z-20 shrink-0 relative overflow-hidden group">
+                   <div className="absolute inset-0 bg-purple-50 dark:bg-purple-500/20 blur-3xl group-hover:opacity-100 opacity-50 transition-opacity" />
+                   <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50" />
+                   <BrainCircuit className="text-purple-600 dark:text-purple-400 w-20 h-20 mb-6 relative z-10 drop-shadow-md dark:drop-shadow-[0_0_25px_rgba(168,85,247,0.7)] animate-pulse" />
+                   <div className="text-lg font-black text-slate-800 dark:text-white relative z-10 tracking-tight text-center">Enterprise LLM</div>
+                   <div className="text-[10px] font-bold text-white mt-4 relative z-10 bg-purple-600 dark:bg-purple-500/40 px-5 py-2 rounded-full border border-purple-500 dark:border-purple-500 uppercase tracking-widest shadow-[0_0_15px_rgba(168,85,247,0.4)] animate-pulse">Inferencing...</div>
+                </div>
+              </div>
+
             </div>
-            
           </div>
         )
       case 3:
