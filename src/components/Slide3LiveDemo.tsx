@@ -10,7 +10,7 @@ interface SimulationStep {
 
 // --- Data ---
 const STEPS: SimulationStep[] = [
-  { label: 'Scan Critical Servers', desc: 'Schedule job scanning enterprise servers.', icon: Server },
+  { label: 'Scheduled CI Scan', desc: 'Schedule job scanning enterprise servers.', icon: Server },
   { label: 'ServiceNow Form Population', desc: 'Extracted data renders into authentic CMDB record.', icon: FileText },
   { label: 'Bidirectional Flow Pipeline', desc: 'Flow sends data to LLM, recommendations type natively back to the form.', icon: Zap },
   { label: 'Generate Action Dashboard', desc: 'Actionable recommendations construct the unified view.', icon: CheckCircle2 },
@@ -49,7 +49,7 @@ export default function Slide3LiveDemo() {
                <div className="absolute inset-[-6px] rounded-full border-t-[6px] border-emerald-500 dark:border-emerald-400 animate-spin" />
                <Activity className="text-emerald-500 dark:text-emerald-400 w-16 h-16 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)] dark:drop-shadow-[0_0_15px_#10b981]" />
             </div>
-            <h3 className="text-3xl font-extrabold text-slate-900 dark:text-white mt-12 mb-6 tracking-tight">Executing Discovery Scan</h3>
+            <h3 className="text-3xl font-extrabold text-slate-900 dark:text-white mt-12 mb-6 tracking-tight">Executing Scheduled CI Scan</h3>
             <div className="bg-white dark:bg-[#0A0F1A] border border-slate-200 dark:border-slate-700/60 shadow-lg dark:shadow-[0_10px_30px_rgba(0,0,0,0.5)] rounded-2xl p-8 w-[600px] max-w-full">
                 <div className="flex justify-between text-base mb-4 text-slate-600 dark:text-slate-300 font-bold">
                     <span className="flex items-center gap-2"><Server size={18} className="text-emerald-600 dark:text-slate-400"/> Scanning Critical Enterprise Servers</span>
@@ -176,7 +176,7 @@ export default function Slide3LiveDemo() {
                         <div className="w-full h-24 bg-emerald-50/50 dark:bg-[#13161F] border border-emerald-200 dark:border-emerald-500/50 rounded overflow-hidden p-2 text-xs relative">
                            {/* Using CSS animation to mimic typing effect specifically synced to timeline */}
                            <p className="text-emerald-800 dark:text-emerald-400 font-mono whitespace-normal animate-typewriter overflow-hidden h-full inline-block">
-                             Schedule a Discovery run. CI never confirmed directly within scope. Recommend automated retirement workflow.
+                             Trigger a targeted scan. CI never confirmed directly within scope. Recommend automated retirement workflow.
                            </p>
                         </div>
                     </div>
@@ -300,9 +300,9 @@ export default function Slide3LiveDemo() {
                   {/* 4. Dashboard CI Cards Grid */}
                   <div className="grid grid-cols-3 gap-6 mt-2">
                      {[
-                       { title: 'APP-SERVER-INCOMPLETE-01', sub: 'Production', score: '0', pills: ['STALE', 'ORPHAN', '2 VIOLATIONS'], act: 'Schedule a Discovery run. CI never confirmed directly within scope. Recommend automated retirement workflow.' },
+                       { title: 'APP-SERVER-INCOMPLETE-01', sub: 'Production', score: '0', pills: ['STALE', 'ORPHAN', '2 VIOLATIONS'], act: 'Trigger a targeted scan. CI never confirmed directly within scope. Recommend automated retirement workflow.' },
                        { title: 'APP-SERVER-DUPLICATE', sub: 'Unknown Environment', score: '2', pills: ['STALE', '2 VIOLATIONS'], act: 'Review for decommissioning. Marked stale (293 days)...' },
-                       { title: 'APP-SERVER-PRD-01', sub: 'Production', score: '24', pills: ['STALE', '2 MISSING'], act: 'Re-run Discovery. Last discovered 3,986 days ago but has 10 active relationships...' },
+                       { title: 'APP-SERVER-PRD-01', sub: 'Production', score: '24', pills: ['STALE', '2 MISSING'], act: 'Trigger Scheduled Analysis. Last scanned 3,986 days ago but has 10 active relationships...' },
                      ].map((card, i) => (
                        <div key={i} className="bg-white dark:bg-[#1A2131] border border-slate-200 dark:border-slate-700/60 rounded-2xl overflow-hidden flex flex-col shadow-sm dark:shadow-lg transition-colors group">
                           <div className="p-5 flex justify-between items-start border-b border-slate-100 dark:border-slate-700/50">

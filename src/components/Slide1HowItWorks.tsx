@@ -32,11 +32,11 @@ const STAGES = [
   },
 ]
 
-const colorMap: Record<string, { ring: string; glow: string; text: string; bg: string; activeBg: string; activeLightBg: string; bar: string }> = {
-  emerald: { ring: 'border-emerald-500 dark:ring-emerald-500', glow: 'shadow-[0_15px_30px_rgba(16,185,129,0.2)] dark:shadow-[0_0_35px_#10b981]', text: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50/50 dark:bg-emerald-500/10', activeBg: 'bg-emerald-50', activeLightBg: 'bg-gradient-to-br from-emerald-50 to-white', bar: 'bg-emerald-600 dark:bg-emerald-500' },
-  teal:    { ring: 'border-teal-500 dark:ring-teal-500',    glow: 'shadow-[0_15px_30px_rgba(20,184,166,0.2)] dark:shadow-[0_0_35px_#14b8a6]', text: 'text-teal-600 dark:text-teal-400',    bg: 'bg-teal-50/50 dark:bg-teal-500/10',    activeBg: 'bg-teal-50', activeLightBg: 'bg-gradient-to-br from-teal-50 to-white',  bar: 'bg-teal-600 dark:bg-teal-500'    },
-  indigo:  { ring: 'border-indigo-500 dark:ring-indigo-500',  glow: 'shadow-[0_15px_30px_rgba(99,102,241,0.2)] dark:shadow-[0_0_35px_#6366f1]', text: 'text-indigo-600 dark:text-indigo-400',  bg: 'bg-indigo-50/50 dark:bg-indigo-500/10',  activeBg: 'bg-indigo-50', activeLightBg: 'bg-gradient-to-br from-indigo-50 to-white', bar: 'bg-indigo-600 dark:bg-indigo-500'  },
-  violet:  { ring: 'border-violet-500 dark:ring-violet-500',  glow: 'shadow-[0_15px_30px_rgba(139,92,246,0.2)] dark:shadow-[0_0_35px_#8b5cf6]', text: 'text-violet-600 dark:text-violet-400',  bg: 'bg-violet-50/50 dark:bg-violet-500/10',  activeBg: 'bg-violet-50', activeLightBg: 'bg-gradient-to-br from-violet-50 to-white', bar: 'bg-violet-600 dark:bg-violet-500'  },
+const colorMap: Record<string, { ring: string; glow: string; text: string; lightText: string, bg: string; activeLightBg: string; bar: string }> = {
+  emerald: { ring: 'border-emerald-500 dark:ring-emerald-500', glow: 'shadow-[0_15px_30px_rgba(16,185,129,0.3)] dark:shadow-[0_0_35px_#10b981]', text: 'text-emerald-50 dark:text-emerald-400', lightText: 'text-emerald-100', bg: 'bg-emerald-50/50 dark:bg-emerald-500/10', activeLightBg: 'bg-gradient-to-br from-[#065F46] to-[#047857]', bar: 'bg-white dark:bg-emerald-500' },
+  teal:    { ring: 'border-teal-500 dark:ring-teal-500',    glow: 'shadow-[0_15px_30px_rgba(20,184,166,0.3)] dark:shadow-[0_0_35px_#14b8a6]', text: 'text-teal-50 dark:text-teal-400',    lightText: 'text-teal-100', bg: 'bg-teal-50/50 dark:bg-teal-500/10',   activeLightBg: 'bg-gradient-to-br from-[#0F766E] to-[#0F766E]',  bar: 'bg-white dark:bg-teal-500'    },
+  indigo:  { ring: 'border-indigo-500 dark:ring-indigo-500',  glow: 'shadow-[0_15px_30px_rgba(99,102,241,0.3)] dark:shadow-[0_0_35px_#6366f1]', text: 'text-indigo-50 dark:text-indigo-400',  lightText: 'text-indigo-100', bg: 'bg-indigo-50/50 dark:bg-indigo-500/10', activeLightBg: 'bg-gradient-to-br from-[#4338CA] to-[#3730A3]', bar: 'bg-white dark:bg-indigo-500'  },
+  violet:  { ring: 'border-violet-500 dark:ring-violet-500',  glow: 'shadow-[0_15px_30px_rgba(139,92,246,0.3)] dark:shadow-[0_0_35px_#8b5cf6]', text: 'text-violet-50 dark:text-violet-400',  lightText: 'text-violet-100', bg: 'bg-violet-50/50 dark:bg-violet-500/10', activeLightBg: 'bg-gradient-to-br from-[#6D28D9] to-[#5B21B6]', bar: 'bg-white dark:bg-violet-500'  },
 }
 
 export default function Slide1HowItWorks() {
@@ -81,8 +81,8 @@ export default function Slide1HowItWorks() {
                 onClick={() => setActive(i)}
                 className={`w-24 h-24 rounded-full flex items-center justify-center border-2 transition-all duration-300 cursor-pointer shadow-sm dark:shadow-lg backdrop-blur-sm
                   ${isActive
-                    ? `${c.activeBg} dark:bg-transparent ${c.ring} dark:ring-[3px] ring-offset-[#F4F6F9] dark:ring-offset-[#03060C] ring-offset-4 ${c.glow} scale-110`
-                    : 'bg-white/60 dark:bg-slate-800/80 border-white dark:border-slate-600/60 hover:border-slate-300 dark:hover:border-slate-300/80 hover:scale-[1.05]'
+                    ? `${c.activeLightBg} dark:bg-transparent ${c.ring} dark:ring-[3px] ring-offset-[#F4F6F9] dark:ring-offset-[#03060C] ring-offset-4 ${c.glow} scale-110`
+                    : 'bg-white/90 dark:bg-slate-800/80 border-slate-200 dark:border-slate-600/60 hover:border-slate-300 dark:hover:border-slate-300/80 hover:scale-[1.05] shadow-[0_4px_10px_rgba(0,0,0,0.05)]'
                   }`}
               >
                 <Icon
@@ -95,27 +95,27 @@ export default function Slide1HowItWorks() {
               <div
                 className={`w-full rounded-2xl p-6 border transition-all duration-300 cursor-pointer h-full min-h-[220px] flex flex-col shadow-lg backdrop-blur-md
                   ${isActive
-                    ? `${c.activeLightBg} dark:bg-[#0B1220] border-transparent dark:border-emerald-500 shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.6),inset_0_0_30px_rgba(16,185,129,0.05)] scale-[1.03] ring-1 ring-black/5`
-                    : 'bg-white/60 dark:bg-[#060A13]/80 border-white dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600'
+                    ? `${c.activeLightBg} dark:bg-[#0B1220] border-transparent dark:border-emerald-500 shadow-[0_20px_40px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.6),inset_0_0_30px_rgba(16,185,129,0.05)] scale-[1.03] ring-1 ring-black/10`
+                    : 'bg-white dark:bg-[#060A13]/80 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600'
                   }`}
                 onClick={() => setActive(i)}
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <span className={`text-sm font-extrabold tracking-[0.2em] uppercase ${isActive ? c.text : 'text-slate-400 dark:text-slate-500'}`}>
+                  <span className={`text-sm font-extrabold tracking-[0.2em] uppercase ${isActive ? c.lightText : 'text-slate-400 dark:text-slate-500'}`}>
                     STEP {stage.step}
                   </span>
                   {isActive && (
                     <span className={`h-2 w-2 rounded-full ${c.bar} animate-pulse shadow-sm dark:shadow-glow`} />
                   )}
                 </div>
-                <h3 className={`text-xl font-black mb-3 transition-colors tracking-tight ${isActive ? 'text-slate-900 dark:text-white' : 'text-slate-700 dark:text-slate-300'}`}>
+                <h3 className={`text-xl font-black mb-3 transition-colors tracking-tight ${isActive ? 'text-white dark:text-white' : 'text-slate-800 dark:text-slate-300'}`}>
                   {stage.title}
                 </h3>
-                <p className={`text-sm leading-relaxed font-medium flex-1 ${isActive ? 'text-slate-700 dark:text-slate-400' : 'text-slate-500 dark:text-slate-400'}`}>
+                <p className={`text-sm leading-relaxed font-medium flex-1 ${isActive ? c.lightText : 'text-slate-500 dark:text-slate-400'}`}>
                   {stage.description}
                 </p>
                 {/* Progress bar */}
-                <div className="mt-5 h-1 bg-slate-200/50 dark:bg-slate-800 rounded-full overflow-hidden shadow-inner dark:shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)]">
+                <div className="mt-5 h-1 bg-black/20 dark:bg-slate-800 rounded-full overflow-hidden shadow-inner dark:shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)]">
                   <div
                     className={`h-full ${c.bar} rounded-full transition-all duration-700 ease-out`}
                     style={{ width: isActive ? '100%' : '0%' }}
