@@ -435,12 +435,12 @@ export default function Slide3LiveDemo() {
         </div>
 
         {/* Controls */}
-        <div className="my-10 flex gap-4 h-14">
-          <button onClick={() => setAutoplay(a => !a)} className="flex-1 flex items-center justify-center gap-3 bg-slate-50 hover:bg-slate-100 text-slate-700 dark:bg-[#131B2A] dark:hover:bg-[#1A253A] border border-slate-200 dark:border-slate-700 dark:text-slate-200 text-sm font-extrabold rounded-full transition-all shadow-sm">
-            {autoplay ? <><Pause size={18}/> PAUSE</> : <><Play size={18}/> AUTO</>}
+        <div className="my-10 flex gap-4 h-14 relative z-50">
+          <button onClick={() => setAutoplay(a => !a)} className={`flex-1 flex items-center justify-center gap-3 text-sm font-black tracking-wide rounded-full transition-all duration-300 shadow-lg border-2 ${autoplay ? 'bg-indigo-50/80 hover:bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-emerald-500/10 dark:hover:bg-emerald-500/20 dark:text-emerald-400 dark:border-emerald-500/30' : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-200 dark:bg-[#1A2235] dark:hover:bg-[#232E45] dark:text-white dark:border-slate-700/80'}`}>
+            {autoplay ? <><Pause size={18} className="animate-pulse" /> PAUSE</> : <><Play size={18} className="text-indigo-600 dark:text-emerald-400"/> AUTO</>}
           </button>
-          <button onClick={() => { setAutoplay(false); goToStep(step + 1) }} className="flex-1 flex items-center justify-center gap-3 bg-slate-50 hover:bg-slate-100 text-slate-700 dark:bg-[#131B2A] dark:hover:bg-[#1A253A] border border-slate-200 dark:border-slate-700 dark:text-slate-200 text-sm font-extrabold rounded-full transition-all shadow-sm group">
-            NEXT <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          <button onClick={() => { setAutoplay(false); goToStep(step + 1) }} disabled={step === STEPS.length - 1} className="flex-1 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white dark:bg-emerald-500 dark:hover:bg-emerald-400 border border-transparent text-sm font-black tracking-wide rounded-full transition-all duration-300 shadow-[0_10px_20px_rgba(79,70,229,0.25)] dark:shadow-[0_10px_20px_rgba(16,185,129,0.25)] group disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0 hover:-translate-y-0.5">
+            NEXT <ChevronRight size={18} className="group-hover:translate-x-1.5 transition-transform" />
           </button>
         </div>
 
