@@ -431,14 +431,14 @@ export default function Slide3LiveDemo() {
     <section className="w-full h-full flex bg-[#F0F2F5] dark:bg-transparent transition-colors duration-500">
       
       {/* ── LEFT: Process Simulator Menu ── */}
-      <div className="w-[450px] bg-white dark:bg-[#0A0F1D]/80 backdrop-blur-2xl border-r border-slate-200 dark:border-slate-700/50 p-10 flex flex-col z-20 shadow-[20px_0_40px_-20px_rgba(0,0,0,0.05)] dark:shadow-[20px_0_40px_-20px_rgba(0,0,0,0.8)] relative transition-colors duration-500">
+      <div className="w-[420px] bg-white dark:bg-[#0A0F1D]/80 backdrop-blur-2xl border-r border-slate-200 dark:border-slate-700/50 p-8 flex flex-col z-20 shadow-[20px_0_40px_-20px_rgba(0,0,0,0.05)] dark:shadow-[20px_0_40px_-20px_rgba(0,0,0,0.8)] relative transition-colors duration-500">
         <div className="mb-2">
            <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Simulator</h2>
            <p className="text-indigo-700 dark:text-emerald-500 font-bold tracking-widest uppercase text-xs mt-3 bg-indigo-50 border-indigo-200 dark:bg-emerald-500/10 inline-block px-3 py-1 rounded-full border dark:border-emerald-500/20">Active Execution</p>
         </div>
 
         {/* Controls */}
-        <div className="my-10 flex gap-4 h-14 relative z-50">
+        <div className="my-6 flex gap-4 h-12 relative z-50">
           <button onClick={() => setAutoplay(a => !a)} className={`flex-1 flex items-center justify-center gap-3 text-sm font-black tracking-wide rounded-full transition-all duration-300 shadow-lg border-2 ${autoplay ? 'bg-indigo-50/80 hover:bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-emerald-500/10 dark:hover:bg-emerald-500/20 dark:text-emerald-400 dark:border-emerald-500/30' : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-200 dark:bg-[#1A2235] dark:hover:bg-[#232E45] dark:text-white dark:border-slate-700/80'}`}>
             {autoplay ? <><Pause size={18} className="animate-pulse" /> PAUSE</> : <><Play size={18} className="text-indigo-600 dark:text-emerald-400"/> AUTO</>}
           </button>
@@ -448,7 +448,7 @@ export default function Slide3LiveDemo() {
         </div>
 
         {/* Stacked Cards for Steps */}
-        <div className="space-y-4 flex-1 mt-4">
+        <div className="space-y-3 flex-1 mt-2">
           {STEPS.map((s, i) => {
             const isActive = i === step
             const isDone = i < step
@@ -457,7 +457,7 @@ export default function Slide3LiveDemo() {
               <div 
                 key={i} 
                 onClick={() => { setAutoplay(false); goToStep(i); }}
-                className={`flex items-center gap-6 cursor-pointer p-4 rounded-2xl border transition-all duration-300 group
+                className={`flex items-center gap-4 cursor-pointer p-3.5 rounded-2xl border transition-all duration-300 group
                            ${isActive ? 'bg-white border-indigo-500 shadow-[0_10px_30px_rgba(99,102,241,0.15)] dark:border-emerald-500 dark:bg-[#0F1725] dark:shadow-[0_10px_30px_rgba(16,185,129,0.15)] scale-105 relative z-10' 
                                       : 'bg-slate-50 border-slate-200 hover:border-slate-400 dark:bg-[#0B101C] dark:border-slate-800 dark:hover:border-slate-600'}`} 
               >
