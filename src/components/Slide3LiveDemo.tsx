@@ -282,7 +282,10 @@ export default function Slide3LiveDemo() {
                    <div className="absolute inset-0 bg-purple-50 dark:bg-purple-500/20 blur-3xl group-hover:opacity-100 opacity-50 transition-opacity" />
                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50" />
                    <BrainCircuit className="text-purple-600 dark:text-purple-400 w-20 h-20 mb-6 relative z-10 drop-shadow-md dark:drop-shadow-[0_0_25px_rgba(168,85,247,0.7)] animate-pulse" />
-                   <div className="text-lg font-black text-slate-800 dark:text-white relative z-10 tracking-tight text-center">Enterprise LLM</div>
+                   <div className="text-lg font-black text-slate-800 dark:text-white relative z-10 tracking-tight text-center leading-tight">
+                     Enterprise LLM
+                     <span className="block text-[11px] text-slate-500 dark:text-purple-300/80 font-bold uppercase tracking-widest mt-1.5">or Native Now Assist</span>
+                   </div>
                    <div className="text-[10px] font-bold text-white mt-4 relative z-10 bg-purple-600 dark:bg-purple-500/40 px-5 py-2 rounded-full border border-purple-500 dark:border-purple-500 uppercase tracking-widest shadow-[0_0_15px_rgba(168,85,247,0.4)] animate-pulse">Inferencing...</div>
                 </div>
               </div>
