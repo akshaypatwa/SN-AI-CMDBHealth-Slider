@@ -155,28 +155,28 @@ export default function Slide3LiveDemo() {
             <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_center,#111827_0%,#000_100%)] opacity-80" />
             
             {/* Strict Grid Layout for perfect pipeline alignment */}
-            <div className="grid grid-cols-[330px_minmax(180px,1fr)_280px] w-full max-w-[1100px] items-center relative z-10 gap-x-6 gap-y-12">
+            <div className="grid grid-cols-[380px_minmax(140px,1fr)_250px] w-full max-w-[1100px] items-center relative z-10 gap-x-6 gap-y-12">
               
               {/* === ROW 1: TOP FORM -> LLM === */}
               {/* Form 1 (Pre-Analysis) */}
               <div className="col-start-1 row-start-1 flex justify-end">
-                <div className="w-[320px] bg-white dark:bg-[#1C202C] border border-slate-200 dark:border-slate-700/80 rounded-lg overflow-hidden shadow-xl flex flex-col font-sans relative transition-transform hover:-translate-y-1 cursor-default">
-                  <div className="absolute -top-3 left-4 bg-indigo-500 text-white text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded shadow-sm z-10">Original Form Data</div>
-                  <div className="bg-[#E4E6EB] dark:bg-[#2B313F] h-7 flex items-center justify-between px-3 border-b border-slate-300 dark:border-slate-800">
-                      <span className="font-bold text-[9px] text-slate-800 dark:text-slate-100">HREC-10901</span>
+                <div className="w-[380px] bg-white dark:bg-[#1C202C] border border-slate-200 dark:border-slate-700/80 rounded-lg overflow-hidden shadow-xl flex flex-col font-sans relative transition-transform hover:-translate-y-1 cursor-default">
+                  <div className="absolute -top-3.5 left-5 bg-indigo-500 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded shadow-sm z-10">Original Form Data</div>
+                  <div className="bg-[#E4E6EB] dark:bg-[#2B313F] h-9 flex items-center justify-between px-4 border-b border-slate-300 dark:border-slate-800">
+                      <span className="font-bold text-[12px] text-slate-800 dark:text-slate-100">HREC-10901</span>
                   </div>
-                  <div className="p-3 bg-white dark:bg-[#1C202C]">
-                      <div className="grid grid-cols-2 gap-3 mb-1">
+                  <div className="p-4 bg-white dark:bg-[#1C202C]">
+                      <div className="grid grid-cols-2 gap-4 mb-2">
                         <div>
-                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5">Configuration Item</label>
-                          <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[9px] text-slate-800 dark:text-slate-200 flex items-center">US-EAST-DB-001</div>
+                          <label className="block text-[10px] font-bold text-slate-600 dark:text-slate-400 mb-1">Configuration Item</label>
+                          <div className="w-full h-8 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2.5 text-[11px] text-slate-800 dark:text-slate-200 flex items-center">US-EAST-DB-001</div>
                         </div>
                         <div>
-                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5 border-l-[2px] border-amber-500 pl-1">Identified Issues</label>
-                          <div className="w-full min-h-[24px] bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded p-1 flex flex-wrap gap-1 items-center">
-                             <div className="px-1 py-0.5 bg-amber-100 text-amber-700 border border-amber-200 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400 text-[8px] rounded font-bold uppercase shadow-sm">Orphan</div>
-                             <div className="px-1 py-0.5 bg-red-100 text-red-700 border border-red-200 dark:border-red-500/30 dark:bg-red-500/20 dark:text-red-400 text-[8px] rounded font-bold uppercase shadow-sm">Stale</div>
-                             <div className="px-1 py-0.5 bg-orange-100 text-orange-700 border border-orange-200 dark:border-orange-500/30 dark:bg-orange-500/20 dark:text-orange-400 text-[8px] rounded font-bold uppercase shadow-sm">Dup</div>
+                          <label className="block text-[10px] font-bold text-slate-600 dark:text-slate-400 mb-1 border-l-[2px] border-amber-500 pl-1.5">Identified Issues</label>
+                          <div className="w-full min-h-[32px] bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded p-1.5 flex flex-wrap gap-1.5 items-center">
+                             <div className="px-1.5 py-0.5 bg-amber-100 text-amber-700 border border-amber-200 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400 text-[9px] rounded font-bold uppercase shadow-sm">Orphan</div>
+                             <div className="px-1.5 py-0.5 bg-red-100 text-red-700 border border-red-200 dark:border-red-500/30 dark:bg-red-500/20 dark:text-red-400 text-[9px] rounded font-bold uppercase shadow-sm">Stale</div>
+                             <div className="px-1.5 py-0.5 bg-orange-100 text-orange-700 border border-orange-200 dark:border-orange-500/30 dark:bg-orange-500/20 dark:text-orange-400 text-[9px] rounded font-bold uppercase shadow-sm">Dup</div>
                           </div>
                         </div>
                       </div>
@@ -186,7 +186,7 @@ export default function Slide3LiveDemo() {
 
               {/* Connecting Pipe 1 (Outgoing) */}
               <div className="col-start-2 row-start-1 flex items-center w-full relative h-[40px]">
-                  <p className="absolute -top-4 left-1/2 -translate-x-1/2 text-[9px] text-indigo-600 dark:text-cyan-400 uppercase tracking-widest font-bold whitespace-nowrap px-1.5 py-0.5">1. Scripts Extract Raw Data</p>
+                  <p className="absolute -top-7 left-1/2 -translate-x-1/2 text-[9px] w-[130px] text-center whitespace-normal leading-tight text-indigo-600 dark:text-cyan-400 uppercase tracking-widest font-bold px-1 py-0.5">1. Scripts Extract<br/>Raw Data</p>
                   <div className="h-2 w-full bg-slate-200 dark:bg-[#0A101C] rounded-full relative overflow-hidden shadow-inner border border-slate-300 dark:border-slate-800">
                     <div className="absolute w-full h-px bg-slate-300 dark:bg-slate-700 top-1/2 -translate-y-1/2" />
                     <div className="absolute left-0 w-64 h-full bg-indigo-500 dark:bg-cyan-400 rounded-full animate-data-flux shadow-[0_0_15px_#6366f1] dark:shadow-[0_0_50px_#22d3ee,inset_0_0_15px_#fff]" />
@@ -197,66 +197,66 @@ export default function Slide3LiveDemo() {
               {/* === ROW 2: LLM -> BOTTOM FORM === */}
               {/* Form 2 (Post-Analysis) */}
               <div className="col-start-1 row-start-2 flex justify-end">
-                <div className="w-[320px] bg-white dark:bg-[#1C202C] border-2 border-emerald-400 dark:border-emerald-500/80 rounded-lg overflow-hidden shadow-[0_10px_30px_rgba(16,185,129,0.15)] flex flex-col font-sans relative transition-transform hover:-translate-y-1 cursor-default">
-                  <div className="absolute -top-3 left-4 bg-emerald-500 text-white text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded shadow-sm z-10 flex items-center gap-1"><Sparkles size={10} /> AI Enriched Form</div>
-                  <div className="bg-[#E4E6EB] dark:bg-[#2B313F] h-7 flex items-center justify-between px-3 border-b border-slate-300 dark:border-slate-800">
-                      <span className="font-bold text-[9px] text-slate-800 dark:text-slate-100">HREC-10901</span>
+                <div className="w-[380px] bg-white dark:bg-[#1C202C] border-2 border-emerald-400 dark:border-emerald-500/80 rounded-lg overflow-hidden shadow-[0_10px_30px_rgba(16,185,129,0.15)] flex flex-col font-sans relative transition-transform hover:-translate-y-1 cursor-default">
+                  <div className="absolute -top-3.5 left-5 bg-emerald-500 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded shadow-sm z-10 flex items-center gap-1.5"><Sparkles size={12} /> AI Enriched Form</div>
+                  <div className="bg-[#E4E6EB] dark:bg-[#2B313F] h-9 flex items-center justify-between px-4 border-b border-slate-300 dark:border-slate-800">
+                      <span className="font-bold text-[12px] text-slate-800 dark:text-slate-100">HREC-10901</span>
                   </div>
-                  <div className="p-3 bg-white dark:bg-[#1C202C]">
-                      <div className="grid grid-cols-2 gap-3 mb-2.5">
+                  <div className="p-4 bg-white dark:bg-[#1C202C]">
+                      <div className="grid grid-cols-2 gap-4 mb-3">
                         <div>
-                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5">Configuration Item</label>
-                          <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[9px] text-slate-800 dark:text-slate-200 flex items-center">US-EAST-DB-001</div>
+                          <label className="block text-[10px] font-bold text-slate-600 dark:text-slate-400 mb-1">Configuration Item</label>
+                          <div className="w-full h-8 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2.5 text-[11px] text-slate-800 dark:text-slate-200 flex items-center">US-EAST-DB-001</div>
                         </div>
                         <div>
-                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5 border-l-[2px] border-amber-500 pl-1">Identified Issues</label>
-                          <div className="w-full min-h-[24px] bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded p-1 flex flex-wrap gap-1 items-center">
-                             <div className="px-1 py-0.5 bg-amber-100 text-amber-700 border border-amber-200 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400 text-[8px] rounded font-bold uppercase shadow-sm">Orphan</div>
-                             <div className="px-1 py-0.5 bg-red-100 text-red-700 border border-red-200 dark:border-red-500/30 dark:bg-red-500/20 dark:text-red-400 text-[8px] rounded font-bold uppercase shadow-sm">Stale</div>
-                             <div className="px-1 py-0.5 bg-orange-100 text-orange-700 border border-orange-200 dark:border-orange-500/30 dark:bg-orange-500/20 dark:text-orange-400 text-[8px] rounded font-bold uppercase shadow-sm">Dup</div>
+                          <label className="block text-[10px] font-bold text-slate-600 dark:text-slate-400 mb-1 border-l-[2px] border-amber-500 pl-1.5">Identified Issues</label>
+                          <div className="w-full min-h-[32px] bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded p-1.5 flex flex-wrap gap-1.5 items-center">
+                             <div className="px-1.5 py-0.5 bg-amber-100 text-amber-700 border border-amber-200 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400 text-[9px] rounded font-bold uppercase shadow-sm">Orphan</div>
+                             <div className="px-1.5 py-0.5 bg-red-100 text-red-700 border border-red-200 dark:border-red-500/30 dark:bg-red-500/20 dark:text-red-400 text-[9px] rounded font-bold uppercase shadow-sm">Stale</div>
+                             <div className="px-1.5 py-0.5 bg-orange-100 text-orange-700 border border-orange-200 dark:border-orange-500/30 dark:bg-orange-500/20 dark:text-orange-400 text-[9px] rounded font-bold uppercase shadow-sm">Dup</div>
                           </div>
                         </div>
                       </div>
-                      <div className="border-t border-slate-100 dark:border-slate-700/50 pt-2">
-                          <label className="block text-[8px] font-bold text-emerald-600 dark:text-emerald-400 mb-1 flex items-center gap-1"><Sparkles size={8}/> AI Recommended Action</label>
-                          <div className="w-full max-h-[140px] overflow-y-auto bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-slate-700/50 rounded p-1 space-y-1 animate-fade-in-scale custom-scrollbar">
+                      <div className="border-t border-slate-100 dark:border-slate-700/50 pt-3">
+                          <label className="block text-[10px] font-bold text-emerald-600 dark:text-emerald-400 mb-1.5 flex items-center gap-1.5"><Sparkles size={10}/> AI Recommended Action</label>
+                          <div className="w-full max-h-[160px] overflow-y-auto bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-slate-700/50 rounded p-1.5 space-y-1.5 animate-fade-in-scale custom-scrollbar">
                              
-                             <div className="bg-white dark:bg-[#161B22] border border-slate-200 dark:border-slate-700/60 rounded flex flex-col p-1.5 gap-1.5 shadow-sm">
-                                <div className="flex items-center gap-1.5">
-                                   <div className="flex items-center gap-1 px-1 py-0.5 border border-yellow-600/30 dark:border-yellow-500/30 bg-yellow-50/50 dark:bg-yellow-500/10 rounded text-[6px] font-black uppercase text-yellow-700 dark:text-[#E2C044] tracking-wide">
-                                     <span className="w-1 h-1 rounded-full bg-yellow-500"></span> Medium
+                             <div className="bg-white dark:bg-[#161B22] border border-slate-200 dark:border-slate-700/60 rounded flex flex-col p-2 gap-1.5 shadow-sm">
+                                <div className="flex items-center gap-2">
+                                   <div className="flex items-center gap-1.5 px-1.5 py-0.5 border border-yellow-600/30 dark:border-yellow-500/30 bg-yellow-50/50 dark:bg-yellow-500/10 rounded text-[8px] font-black uppercase text-yellow-700 dark:text-[#E2C044] tracking-wide">
+                                     <span className="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Medium
                                    </div>
-                                   <span className="text-[8px] font-bold text-slate-800 dark:text-slate-100">CI is an orphan</span>
+                                   <span className="text-[11px] font-bold text-slate-800 dark:text-slate-100">CI is an orphan</span>
                                 </div>
-                                <div className="flex items-start gap-1.5 pl-0.5">
-                                   <div className="px-1 py-0.5 border border-yellow-600/40 dark:border-[#E2C044]/50 rounded text-[6px] font-black text-yellow-700 dark:text-[#E2C044] uppercase tracking-wide">FIX</div>
-                                   <span className="text-[7.5px] font-bold text-yellow-700/90 dark:text-[#E2C044] leading-tight">Map US-EAST-DB-001 to its hosting infrastructure via the CSDM relationship editor.</span>
+                                <div className="flex items-start gap-2 pl-1">
+                                   <div className="px-1.5 py-0.5 border border-yellow-600/40 dark:border-[#E2C044]/50 rounded text-[8px] font-black text-yellow-700 dark:text-[#E2C044] uppercase tracking-wide">FIX</div>
+                                   <span className="text-[10px] font-bold text-yellow-700/90 dark:text-[#E2C044] leading-snug">Map US-EAST-DB-001 to its hosting infrastructure via the CSDM relationship editor.</span>
                                 </div>
                              </div>
 
-                             <div className="bg-white dark:bg-[#161B22] border border-slate-200 dark:border-slate-700/60 rounded flex flex-col p-1.5 gap-1.5 shadow-sm">
-                                <div className="flex items-center gap-1.5">
-                                   <div className="flex items-center gap-1 px-1 py-0.5 border border-yellow-600/30 dark:border-yellow-500/30 bg-yellow-50/50 dark:bg-yellow-500/10 rounded text-[6px] font-black uppercase text-yellow-700 dark:text-[#E2C044] tracking-wide">
-                                     <span className="w-1 h-1 rounded-full bg-yellow-500"></span> Medium
+                             <div className="bg-white dark:bg-[#161B22] border border-slate-200 dark:border-slate-700/60 rounded flex flex-col p-2 gap-1.5 shadow-sm">
+                                <div className="flex items-center gap-2">
+                                   <div className="flex items-center gap-1.5 px-1.5 py-0.5 border border-yellow-600/30 dark:border-yellow-500/30 bg-yellow-50/50 dark:bg-yellow-500/10 rounded text-[8px] font-black uppercase text-yellow-700 dark:text-[#E2C044] tracking-wide">
+                                     <span className="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Medium
                                    </div>
-                                   <span className="text-[8px] font-bold text-slate-800 dark:text-slate-100">CI is stale and likely decommissioned</span>
+                                   <span className="text-[11px] font-bold text-slate-800 dark:text-slate-100">CI is stale and likely decommissioned</span>
                                 </div>
-                                <div className="flex items-start gap-1.5 pl-0.5">
-                                   <div className="px-1 py-0.5 border border-yellow-600/40 dark:border-[#E2C044]/50 rounded text-[6px] font-black text-yellow-700 dark:text-[#E2C044] uppercase tracking-wide">FIX</div>
-                                   <span className="text-[7.5px] font-bold text-yellow-700/90 dark:text-[#E2C044] leading-tight">Review US-EAST-DB-001 for decommissioning. Set operational_status = Retired if confirmed.</span>
+                                <div className="flex items-start gap-2 pl-1">
+                                   <div className="px-1.5 py-0.5 border border-yellow-600/40 dark:border-[#E2C044]/50 rounded text-[8px] font-black text-yellow-700 dark:text-[#E2C044] uppercase tracking-wide">FIX</div>
+                                   <span className="text-[10px] font-bold text-yellow-700/90 dark:text-[#E2C044] leading-snug">Review US-EAST-DB-001 for decommissioning. Set operational_status = Retired if confirmed.</span>
                                 </div>
                              </div>
 
-                             <div className="bg-white dark:bg-[#161B22] border border-slate-200 dark:border-slate-700/60 rounded flex flex-col p-1.5 gap-1.5 shadow-sm">
-                                <div className="flex items-center gap-1.5">
-                                   <div className="flex items-center gap-1 px-1 py-0.5 border border-orange-600/30 dark:border-orange-500/30 bg-orange-50/50 dark:bg-orange-500/10 rounded text-[6px] font-black uppercase text-orange-700 dark:text-[#F38C3B] tracking-wide">
-                                     <span className="w-[3px] h-[3px] rotate-45 bg-orange-500"></span> High
+                             <div className="bg-white dark:bg-[#161B22] border border-slate-200 dark:border-slate-700/60 rounded flex flex-col p-2 gap-1.5 shadow-sm">
+                                <div className="flex items-center gap-2">
+                                   <div className="flex items-center gap-1.5 px-1.5 py-0.5 border border-orange-600/30 dark:border-orange-500/30 bg-orange-50/50 dark:bg-orange-500/10 rounded text-[8px] font-black uppercase text-orange-700 dark:text-[#F38C3B] tracking-wide">
+                                     <span className="w-[3.5px] h-[3.5px] rotate-45 bg-orange-500"></span> High
                                    </div>
-                                   <span className="text-[8px] font-bold text-slate-800 dark:text-slate-100">Duplicate entry detected</span>
+                                   <span className="text-[11px] font-bold text-slate-800 dark:text-slate-100">Duplicate entry detected</span>
                                 </div>
-                                <div className="flex items-start gap-1.5 pl-0.5">
-                                   <div className="px-1 py-0.5 border border-orange-600/40 dark:border-[#F38C3B]/50 rounded text-[6px] font-black text-orange-700 dark:text-[#F38C3B] uppercase tracking-wide">FIX</div>
-                                   <span className="text-[7.5px] font-bold text-orange-700/90 dark:text-[#F38C3B] leading-tight">Merge US-EAST-DB-001 with primary active record to resolve compliance violations.</span>
+                                <div className="flex items-start gap-2 pl-1">
+                                   <div className="px-1.5 py-0.5 border border-orange-600/40 dark:border-[#F38C3B]/50 rounded text-[8px] font-black text-orange-700 dark:text-[#F38C3B] uppercase tracking-wide">FIX</div>
+                                   <span className="text-[10px] font-bold text-orange-700/90 dark:text-[#F38C3B] leading-snug">Merge US-EAST-DB-001 with primary active record to resolve compliance violations.</span>
                                 </div>
                              </div>
 
@@ -268,7 +268,7 @@ export default function Slide3LiveDemo() {
 
               {/* Connecting Pipe 2 (Incoming) */}
               <div className="col-start-2 row-start-2 flex items-center w-full relative h-[40px] scale-x-[-1]">
-                  <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[9px] text-emerald-600 dark:text-emerald-400 uppercase tracking-widest font-bold whitespace-nowrap px-1.5 py-0.5 scale-x-[-1]">2. Push Native Recommendations</p>
+                  <p className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[9px] w-[130px] text-center whitespace-normal leading-tight text-emerald-600 dark:text-emerald-400 uppercase tracking-widest font-bold px-1 py-0.5 scale-x-[-1]">2. Push Native<br/>Recommendations</p>
                   <div className="h-2 w-full bg-slate-200 dark:bg-[#0A101C] rounded-full relative overflow-hidden shadow-inner border border-slate-300 dark:border-slate-800">
                     <div className="absolute w-full h-px bg-slate-300 dark:bg-slate-700 top-1/2 -translate-y-1/2" />
                     <div className="absolute left-0 w-64 h-full bg-emerald-500 dark:bg-emerald-400 rounded-full animate-data-flux shadow-[0_0_15px_#10b981] dark:shadow-[0_0_50px_#10b981,inset_0_0_15px_#fff]" style={{ animationDelay: '1.2s' }} />
@@ -277,8 +277,8 @@ export default function Slide3LiveDemo() {
               </div>
 
               {/* === COL 3: LLM Engine (Spans both rows) === */}
-              <div className="col-start-3 row-start-1 row-span-2 flex items-center justify-center pl-4">
-                <div className="w-[280px] bg-white dark:bg-gradient-to-b dark:from-[#1B122A] dark:to-[#0D0814] border border-slate-200 dark:border-purple-500/50 rounded-[2rem] p-8 flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_30px_80px_rgba(168,85,247,0.3)] z-20 shrink-0 relative overflow-hidden group">
+              <div className="col-start-3 row-start-1 row-span-2 flex items-stretch justify-center pl-4 py-8">
+                <div className="w-[250px] h-full bg-white dark:bg-gradient-to-b dark:from-[#1B122A] dark:to-[#0D0814] border border-slate-200 dark:border-purple-500/50 rounded-[2rem] p-8 flex flex-col items-center justify-center shadow-[0_20px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_30px_80px_rgba(168,85,247,0.3)] z-20 shrink-0 relative overflow-hidden group">
                    <div className="absolute inset-0 bg-purple-50 dark:bg-purple-500/20 blur-3xl group-hover:opacity-100 opacity-50 transition-opacity" />
                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-50" />
                    <BrainCircuit className="text-purple-600 dark:text-purple-400 w-20 h-20 mb-6 relative z-10 drop-shadow-md dark:drop-shadow-[0_0_25px_rgba(168,85,247,0.7)] animate-pulse" />
