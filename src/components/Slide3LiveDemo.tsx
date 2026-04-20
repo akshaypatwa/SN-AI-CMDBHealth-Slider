@@ -116,9 +116,11 @@ export default function Slide3LiveDemo() {
                    {/* Right Column */}
                    <div className="space-y-4">
                      <div>
-                       <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 mb-1 border-l-[3px] border-amber-500 pl-2">Data Gap Reason</label>
-                       <div className="w-full h-8 bg-slate-50 border border-slate-300 dark:bg-[#13161F] dark:border-slate-600/60 rounded px-3 flex items-center text-sm font-bold text-amber-600 dark:text-amber-400">
-                         Orphaned CI (No Application Service tie)
+                       <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 mb-1 border-l-[3px] border-amber-500 pl-2">Identified Issues</label>
+                       <div className="w-full min-h-[32px] bg-slate-50 border border-slate-300 dark:bg-[#13161F] dark:border-slate-600/60 rounded px-2 py-1.5 flex flex-wrap gap-1.5 items-center">
+                         <span className="bg-amber-100 dark:bg-amber-500/20 border border-amber-200 dark:border-amber-500/30 text-amber-700 dark:text-amber-400 text-[10px] uppercase font-bold px-1.5 py-0.5 rounded shadow-sm">Orphan CI</span>
+                         <span className="bg-red-100 dark:bg-red-500/20 border border-red-200 dark:border-red-500/30 text-red-700 dark:text-red-400 text-[10px] uppercase font-bold px-1.5 py-0.5 rounded shadow-sm">Stale (320d)</span>
+                         <span className="bg-orange-100 dark:bg-orange-500/20 border border-orange-200 dark:border-orange-500/30 text-orange-700 dark:text-orange-400 text-[10px] uppercase font-bold px-1.5 py-0.5 rounded shadow-sm">Duplicate</span>
                        </div>
                      </div>
                      <div>
@@ -170,8 +172,12 @@ export default function Slide3LiveDemo() {
                           <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[9px] text-slate-800 dark:text-slate-200 flex items-center">US-EAST-DB-001</div>
                         </div>
                         <div>
-                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5 border-l-[2px] border-amber-500 pl-1">Data Gap Reason</label>
-                          <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[9px] text-amber-600 dark:text-amber-400 flex items-center">Orphaned CI</div>
+                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5 border-l-[2px] border-amber-500 pl-1">Identified Issues</label>
+                          <div className="w-full min-h-[24px] bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded p-1 flex flex-wrap gap-1 items-center">
+                             <div className="px-1 py-0.5 bg-amber-100 text-amber-700 border border-amber-200 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400 text-[8px] rounded font-bold uppercase shadow-sm">Orphan</div>
+                             <div className="px-1 py-0.5 bg-red-100 text-red-700 border border-red-200 dark:border-red-500/30 dark:bg-red-500/20 dark:text-red-400 text-[8px] rounded font-bold uppercase shadow-sm">Stale</div>
+                             <div className="px-1 py-0.5 bg-orange-100 text-orange-700 border border-orange-200 dark:border-orange-500/30 dark:bg-orange-500/20 dark:text-orange-400 text-[8px] rounded font-bold uppercase shadow-sm">Dup</div>
+                          </div>
                         </div>
                       </div>
                   </div>
@@ -203,16 +209,57 @@ export default function Slide3LiveDemo() {
                           <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[9px] text-slate-800 dark:text-slate-200 flex items-center">US-EAST-DB-001</div>
                         </div>
                         <div>
-                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5 border-l-[2px] border-amber-500 pl-1">Data Gap Reason</label>
-                          <div className="w-full h-6 bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded px-2 text-[9px] text-amber-600 dark:text-amber-400 flex items-center">Orphaned CI</div>
+                          <label className="block text-[8px] font-bold text-slate-600 dark:text-slate-400 mb-0.5 border-l-[2px] border-amber-500 pl-1">Identified Issues</label>
+                          <div className="w-full min-h-[24px] bg-slate-50 dark:bg-[#13161F] border border-slate-200 dark:border-slate-700 rounded p-1 flex flex-wrap gap-1 items-center">
+                             <div className="px-1 py-0.5 bg-amber-100 text-amber-700 border border-amber-200 dark:border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-400 text-[8px] rounded font-bold uppercase shadow-sm">Orphan</div>
+                             <div className="px-1 py-0.5 bg-red-100 text-red-700 border border-red-200 dark:border-red-500/30 dark:bg-red-500/20 dark:text-red-400 text-[8px] rounded font-bold uppercase shadow-sm">Stale</div>
+                             <div className="px-1 py-0.5 bg-orange-100 text-orange-700 border border-orange-200 dark:border-orange-500/30 dark:bg-orange-500/20 dark:text-orange-400 text-[8px] rounded font-bold uppercase shadow-sm">Dup</div>
+                          </div>
                         </div>
                       </div>
                       <div className="border-t border-slate-100 dark:border-slate-700/50 pt-2">
                           <label className="block text-[8px] font-bold text-emerald-600 dark:text-emerald-400 mb-1 flex items-center gap-1"><Sparkles size={8}/> AI Recommended Action</label>
-                          <div className="w-full h-16 bg-emerald-50/50 dark:bg-[#13161F] border border-emerald-200 dark:border-emerald-500/50 rounded overflow-hidden p-2 text-[10px] relative">
-                             <p className="text-emerald-800 dark:text-emerald-400 font-mono whitespace-normal animate-typewriter overflow-hidden h-full inline-block">
-                               Trigger a targeted scan. CI never confirmed directly within scope. Recommend automated retirement workflow.
-                             </p>
+                          <div className="w-full max-h-[140px] overflow-y-auto bg-slate-50 dark:bg-[#0B0F19] border border-slate-200 dark:border-slate-700/50 rounded p-1 space-y-1 animate-fade-in-scale custom-scrollbar">
+                             
+                             <div className="bg-white dark:bg-[#161B22] border border-slate-200 dark:border-slate-700/60 rounded flex flex-col p-1.5 gap-1.5 shadow-sm">
+                                <div className="flex items-center gap-1.5">
+                                   <div className="flex items-center gap-1 px-1 py-0.5 border border-yellow-600/30 dark:border-yellow-500/30 bg-yellow-50/50 dark:bg-yellow-500/10 rounded text-[6px] font-black uppercase text-yellow-700 dark:text-[#E2C044] tracking-wide">
+                                     <span className="w-1 h-1 rounded-full bg-yellow-500"></span> Medium
+                                   </div>
+                                   <span className="text-[8px] font-bold text-slate-800 dark:text-slate-100">CI is an orphan</span>
+                                </div>
+                                <div className="flex items-start gap-1.5 pl-0.5">
+                                   <div className="px-1 py-0.5 border border-yellow-600/40 dark:border-[#E2C044]/50 rounded text-[6px] font-black text-yellow-700 dark:text-[#E2C044] uppercase tracking-wide">FIX</div>
+                                   <span className="text-[7.5px] font-bold text-yellow-700/90 dark:text-[#E2C044] leading-tight">Map US-EAST-DB-001 to its hosting infrastructure via the CSDM relationship editor.</span>
+                                </div>
+                             </div>
+
+                             <div className="bg-white dark:bg-[#161B22] border border-slate-200 dark:border-slate-700/60 rounded flex flex-col p-1.5 gap-1.5 shadow-sm">
+                                <div className="flex items-center gap-1.5">
+                                   <div className="flex items-center gap-1 px-1 py-0.5 border border-yellow-600/30 dark:border-yellow-500/30 bg-yellow-50/50 dark:bg-yellow-500/10 rounded text-[6px] font-black uppercase text-yellow-700 dark:text-[#E2C044] tracking-wide">
+                                     <span className="w-1 h-1 rounded-full bg-yellow-500"></span> Medium
+                                   </div>
+                                   <span className="text-[8px] font-bold text-slate-800 dark:text-slate-100">CI is stale and likely decommissioned</span>
+                                </div>
+                                <div className="flex items-start gap-1.5 pl-0.5">
+                                   <div className="px-1 py-0.5 border border-yellow-600/40 dark:border-[#E2C044]/50 rounded text-[6px] font-black text-yellow-700 dark:text-[#E2C044] uppercase tracking-wide">FIX</div>
+                                   <span className="text-[7.5px] font-bold text-yellow-700/90 dark:text-[#E2C044] leading-tight">Review US-EAST-DB-001 for decommissioning. Set operational_status = Retired if confirmed.</span>
+                                </div>
+                             </div>
+
+                             <div className="bg-white dark:bg-[#161B22] border border-slate-200 dark:border-slate-700/60 rounded flex flex-col p-1.5 gap-1.5 shadow-sm">
+                                <div className="flex items-center gap-1.5">
+                                   <div className="flex items-center gap-1 px-1 py-0.5 border border-orange-600/30 dark:border-orange-500/30 bg-orange-50/50 dark:bg-orange-500/10 rounded text-[6px] font-black uppercase text-orange-700 dark:text-[#F38C3B] tracking-wide">
+                                     <span className="w-[3px] h-[3px] rotate-45 bg-orange-500"></span> High
+                                   </div>
+                                   <span className="text-[8px] font-bold text-slate-800 dark:text-slate-100">Duplicate entry detected</span>
+                                </div>
+                                <div className="flex items-start gap-1.5 pl-0.5">
+                                   <div className="px-1 py-0.5 border border-orange-600/40 dark:border-[#F38C3B]/50 rounded text-[6px] font-black text-orange-700 dark:text-[#F38C3B] uppercase tracking-wide">FIX</div>
+                                   <span className="text-[7.5px] font-bold text-orange-700/90 dark:text-[#F38C3B] leading-tight">Merge US-EAST-DB-001 with primary active record to resolve compliance violations.</span>
+                                </div>
+                             </div>
+
                           </div>
                       </div>
                   </div>

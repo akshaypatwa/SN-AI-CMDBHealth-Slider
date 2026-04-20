@@ -1,33 +1,33 @@
 import { useState } from 'react'
-import { Search, Brain, Stethoscope, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Search, Database, Brain, LayoutDashboard, ArrowRight } from 'lucide-react'
 
 const STAGES = [
   {
     icon: Search,
     step: '01',
-    title: 'Discovery Phase',
+    title: 'Data Extraction',
     description: 'Auto-scan your CMDB for stale records, orphaned CIs, and completely broken relationships across all configuration item classes.',
     color: 'emerald',
   },
   {
-    icon: Brain,
+    icon: Database,
     step: '02',
-    title: 'AI Analysis',
-    description: 'NLP-powered engine deeply cross-references change history, incident data, and asset lifecycle patterns to accurately score each CI.',
+    title: 'Data Collection',
+    description: 'The scanned CMDB data, along with all identified issues and baseline anomalies, are comprehensively collected and stored within a custom assessment table.',
     color: 'teal',
   },
   {
-    icon: Stethoscope,
+    icon: Brain,
     step: '03',
-    title: 'Diagnostic AI',
-    description: 'Root-cause mapping instantly identifies ownership gaps, duplicate entries, and compliance drift with strictly explainable AI reasoning.',
+    title: 'LLM Analysis',
+    description: 'All collected issue data and its related peer CIs are sent to the LLM for deep analysis, instantly generating precise recommendations and exact fixes.',
     color: 'indigo',
   },
   {
-    icon: CheckCircle2,
+    icon: LayoutDashboard,
     step: '04',
-    title: 'Automated Fixes',
-    description: 'Auto-generated fix tasks reliably routed to the right assignment groups — with flawless one-click apply or bulk-remediation flows.',
+    title: 'Resolution Dashboard',
+    description: 'A complete, single-pane-of-glass dashboard provides rich, actionable insights on issue resolution, systemic remediation strategies, and applied fixes.',
     color: 'violet',
   },
 ]
