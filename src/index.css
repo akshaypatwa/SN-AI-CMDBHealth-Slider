@@ -99,3 +99,6 @@
 /* ── Custom scrollbar (hidden) ── */
 * { scrollbar-width: none; }
 *::-webkit-scrollbar { display: none; }
+
+.preserve-3d { transform-style: preserve-3d; }
+.perspective-[2500px] { perspective: 2500px; }

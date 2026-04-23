@@ -1,4 +1,38 @@
 import { AlertTriangle, ServerCrash, Unplug, DatabaseZap, Activity, LayoutTemplate, Database, Server, Link2Off, CheckCircle2, Ghost, UserX } from 'lucide-react'
+import { useState, useRef, MouseEvent, ReactNode } from 'react'
+
+function TiltCard({ children, className = '' }: { children: ReactNode, className?: string }) {
+  const [style, setStyle] = useState({ transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)' })
+  const boundingRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!boundingRef.current) return
+    const rect = boundingRef.current.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    const rotateX = ((y - centerY) / centerY) * -15 // Max 15 deg
+    const rotateY = ((x - centerX) / centerX) * 15 
+    setStyle({ transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)` })
+  }
+
+  const handleMouseLeave = () => {
+    setStyle({ transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)' })
+  }
+
+  return (
+    <div
+      ref={boundingRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`transition-all duration-200 ease-out will-change-transform ${className}`}
+      style={style}
+    >
+      {children}
+    </div>
+  )
+}
 
 export default function Slide0aProblem() {
   return (
@@ -6,15 +40,14 @@ export default function Slide0aProblem() {
       
       {/* Explicit Core Problem Heading - Massive and Centered vertically locally */}
       <div className="w-full max-w-[1500px] mx-auto mb-10 flex items-center justify-between z-20">
-        <div>
+        <TiltCard>
            <h2 className="text-6xl font-black text-[#E74A33] tracking-tighter drop-shadow-sm mb-2">
              The Core Problem
            </h2>
            <h3 className="text-3xl font-extrabold text-[#023761] dark:text-white tracking-tight drop-shadow-sm opacity-90">
              A Fragmented, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E74A33] to-[#EC9A1E]">Decaying CMDB</span>
            </h3>
-        </div>
-        {/* Right text intentionally removed out of the way of the watermark */}
+        </TiltCard>
       </div>
 
       {/* 2-Column Split Layout for Pristine UI Constraints */}
@@ -51,71 +84,93 @@ export default function Slide0aProblem() {
 
            {/* THE CENTRAL GLITCHING CMDB CORE (Shifted down 4%) */}
            <div className="absolute top-[54%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-              <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-[#E74A33]/40 to-black border-2 border-[#E74A33] shadow-[0_0_50px_rgba(231,74,51,0.6)] flex items-center justify-center backdrop-blur-md group hover:scale-110 transition-transform">
-                 <div className="absolute inset-0 rounded-full animate-ping bg-[#E74A33] opacity-30"></div>
-                 <DatabaseZap size={60} className="text-white drop-shadow-[0_0_15px_white]" />
-                 <span className="absolute -bottom-8 w-36 text-center text-white font-black uppercase tracking-widest text-[11px] bg-black/60 px-2 py-1 rounded-full border border-white/20">Fragmented DB</span>
-              </div>
+              <TiltCard>
+                <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-[#E74A33]/40 to-black border-2 border-[#E74A33] shadow-[0_0_50px_rgba(231,74,51,0.6)] flex items-center justify-center backdrop-blur-md z-30">
+                   <div className="absolute inset-0 rounded-full animate-ping bg-[#E74A33] opacity-30"></div>
+                   <DatabaseZap size={60} className="text-white drop-shadow-[0_0_15px_white]" />
+                   <span className="absolute -bottom-8 w-36 text-center text-white font-black uppercase tracking-widest text-[11px] bg-black/60 px-2 py-1 rounded-full border border-white/20">Fragmented DB</span>
+                </div>
+              </TiltCard>
            </div>
 
            {/* ORBITING HUD NODE 1: Duplicate CIs (Shifted down 4%) */}
-           <div className="absolute top-[12%] left-1/2 -translate-x-1/2 z-20 flex flex-col items-center hover:scale-110 transition-transform w-[220px]">
-              <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#E74A33]/60 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(231,74,51,0.4)] mb-2 relative">
-                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#E74A33] rounded-full animate-bounce"></div>
-                 <Database size={30} className="text-[#E74A33]" />
-              </div>
-              <div className="bg-[#011425]/80 backdrop-blur border border-white/10 p-2 px-3 rounded-lg text-center w-full shadow-2xl">
-                 <h4 className="text-white font-black text-sm tracking-wide">Duplicate CIs</h4>
-                 <p className="text-[#5291dd] text-[10px] leading-tight mt-1">Lethal logic loops & overlapping data.</p>
-              </div>
+           <div className="absolute top-[12%] left-1/2 -translate-x-1/2 z-20 flex flex-col items-center w-[220px]">
+             <TiltCard>
+               <div className="flex flex-col items-center hover:scale-110 transition-transform">
+                 <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#E74A33]/60 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(231,74,51,0.4)] mb-2 relative">
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#E74A33] rounded-full animate-bounce"></div>
+                    <Database size={30} className="text-[#E74A33]" />
+                 </div>
+                 <div className="bg-[#011425]/80 backdrop-blur border border-white/10 p-2 px-3 rounded-lg text-center w-full shadow-2xl">
+                    <h4 className="text-white font-black text-sm tracking-wide">Duplicate CIs</h4>
+                    <p className="text-[#5291dd] text-[10px] leading-tight mt-1">Lethal logic loops & overlapping data.</p>
+                 </div>
+               </div>
+             </TiltCard>
            </div>
 
            {/* ORBITING HUD NODE 2: Stale CIs (Shifted down 4%) */}
-           <div className="absolute top-[36%] right-[2%] z-20 flex flex-col items-center hover:scale-110 transition-transform w-[200px]">
-              <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#EC9A1E]/60 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(236,154,30,0.4)] mb-2 relative">
-                 <Ghost size={30} className="text-[#EC9A1E]" />
-              </div>
-              <div className="bg-[#011425]/80 backdrop-blur border border-white/10 p-2 px-3 rounded-lg text-center w-full shadow-2xl">
-                 <h4 className="text-white font-black text-sm tracking-wide">Stale CIs</h4>
-                 <p className="text-[#5291dd] text-[10px] leading-tight mt-1">Ghost servers inflating costs.</p>
-              </div>
+           <div className="absolute top-[36%] right-[2%] z-20 flex flex-col items-center w-[200px]">
+             <TiltCard>
+               <div className="flex flex-col items-center hover:scale-110 transition-transform">
+                 <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#EC9A1E]/60 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(236,154,30,0.4)] mb-2 relative">
+                    <Ghost size={30} className="text-[#EC9A1E]" />
+                 </div>
+                 <div className="bg-[#011425]/80 backdrop-blur border border-white/10 p-2 px-3 rounded-lg text-center w-full shadow-2xl">
+                    <h4 className="text-white font-black text-sm tracking-wide">Stale CIs</h4>
+                    <p className="text-[#5291dd] text-[10px] leading-tight mt-1">Ghost servers inflating costs.</p>
+                 </div>
+               </div>
+             </TiltCard>
            </div>
 
            {/* ORBITING HUD NODE 3: Orphaned Assets (Shifted down 4%) */}
-           <div className="absolute bottom-[6%] right-[10%] z-20 flex flex-col items-center hover:scale-110 transition-transform w-[200px]">
-              <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#E74A33]/60 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(231,74,51,0.4)] mb-2 relative">
-                 <Server size={30} className="text-[#E74A33]" />
-                 {/* Broken wire mini graphic */}
-                 <div className="absolute -left-6 top-1/2 w-4 border-t-2 border-dashed border-[#E74A33]"></div>
-              </div>
-              <div className="bg-[#E74A33]/10 backdrop-blur border border-[#E74A33]/30 p-2 px-3 rounded-lg text-center w-full shadow-2xl">
-                 <h4 className="text-[#E74A33] font-black text-sm tracking-wide">Orphaned Assets</h4>
-                 <p className="text-blue-100/80 text-[10px] leading-tight mt-1">Physically disconnected from maps.</p>
-              </div>
+           <div className="absolute bottom-[6%] right-[10%] z-20 flex flex-col items-center w-[200px]">
+             <TiltCard>
+               <div className="flex flex-col items-center hover:scale-110 transition-transform">
+                 <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#E74A33]/60 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(231,74,51,0.4)] mb-2 relative">
+                    <Server size={30} className="text-[#E74A33]" />
+                    {/* Broken wire mini graphic */}
+                    <div className="absolute -left-6 top-1/2 w-4 border-t-2 border-dashed border-[#E74A33]"></div>
+                 </div>
+                 <div className="bg-[#E74A33]/10 backdrop-blur border border-[#E74A33]/30 p-2 px-3 rounded-lg text-center w-full shadow-2xl">
+                    <h4 className="text-[#E74A33] font-black text-sm tracking-wide">Orphaned Assets</h4>
+                    <p className="text-blue-100/80 text-[10px] leading-tight mt-1">Physically disconnected from maps.</p>
+                 </div>
+               </div>
+             </TiltCard>
            </div>
 
            {/* ORBITING HUD NODE 4: No Owners (Shifted down 4%) */}
-           <div className="absolute bottom-[6%] left-[10%] z-20 flex flex-col items-center hover:scale-110 transition-transform w-[200px]">
-              <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#E74A33]/60 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(231,74,51,0.4)] mb-2 relative">
-                 <UserX size={30} className="text-[#E74A33]" />
-              </div>
-              <div className="bg-[#011425]/80 backdrop-blur border border-white/10 p-2 px-3 rounded-lg text-center w-full shadow-2xl">
-                 <h4 className="text-white font-black text-sm tracking-wide">No Owners</h4>
-                 <p className="text-[#5291dd] text-[10px] leading-tight mt-1">Zero accountability for nodes.</p>
-              </div>
+           <div className="absolute bottom-[6%] left-[10%] z-20 flex flex-col items-center w-[200px]">
+             <TiltCard>
+               <div className="flex flex-col items-center hover:scale-110 transition-transform">
+                 <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#E74A33]/60 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(231,74,51,0.4)] mb-2 relative">
+                    <UserX size={30} className="text-[#E74A33]" />
+                 </div>
+                 <div className="bg-[#011425]/80 backdrop-blur border border-white/10 p-2 px-3 rounded-lg text-center w-full shadow-2xl">
+                    <h4 className="text-white font-black text-sm tracking-wide">No Owners</h4>
+                    <p className="text-[#5291dd] text-[10px] leading-tight mt-1">Zero accountability for nodes.</p>
+                 </div>
+               </div>
+             </TiltCard>
            </div>
 
            {/* ORBITING HUD NODE 5: Broken Discovery (Shifted down 4%) */}
-           <div className="absolute top-[36%] left-[2%] z-20 flex flex-col items-center hover:scale-110 transition-transform w-[200px]">
-              <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#f7b516]/60 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(247,181,22,0.4)] mb-2 relative overflow-hidden">
-                 <Activity size={30} className="text-[#f7b516] z-10" />
-                 {/* Mini spinning radar */}
-                 <div className="absolute inset-0 bg-transparent border-t border-[rgba(247,181,22,0.5)] animate-spin rounded-full"></div>
-              </div>
-              <div className="bg-[#011425]/80 backdrop-blur border border-white/10 p-2 px-3 rounded-lg text-center w-full shadow-2xl">
-                 <h4 className="text-white font-black text-sm tracking-wide">Broken Scan</h4>
-                 <p className="text-[#5291dd] text-[10px] leading-tight mt-1">Pipes failing from credential drops.</p>
-              </div>
+           <div className="absolute top-[36%] left-[2%] z-20 flex flex-col items-center w-[200px]">
+             <TiltCard>
+               <div className="flex flex-col items-center hover:scale-110 transition-transform">
+                 <div className="w-16 h-16 bg-black/40 backdrop-blur-md border border-[#f7b516]/60 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(247,181,22,0.4)] mb-2 relative overflow-hidden">
+                    <Activity size={30} className="text-[#f7b516] z-10" />
+                    {/* Mini spinning radar */}
+                    <div className="absolute inset-0 bg-transparent border-t border-[rgba(247,181,22,0.5)] animate-spin rounded-full"></div>
+                 </div>
+                 <div className="bg-[#011425]/80 backdrop-blur border border-white/10 p-2 px-3 rounded-lg text-center w-full shadow-2xl">
+                    <h4 className="text-white font-black text-sm tracking-wide">Broken Scan</h4>
+                    <p className="text-[#5291dd] text-[10px] leading-tight mt-1">Pipes failing from credential drops.</p>
+                 </div>
+               </div>
+             </TiltCard>
            </div>
 
         </div>
@@ -124,55 +179,61 @@ export default function Slide0aProblem() {
         <div className="flex-1 flex flex-col justify-between gap-6">
           
           {/* Card 1 */}
-          <div className="flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border border-white/50 dark:border-[#5291dd]/20 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#E74A33]/40">
-             <div className="w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br from-[#E74A33]/10 to-[#EC9A1E]/5 flex items-center justify-center border border-[#E74A33]/30 group-hover:shadow-[0_0_25px_rgba(231,74,51,0.2)] transition-shadow">
-               <ServerCrash size={32} className="text-[#E74A33]" />
-             </div>
-             <div className="flex-1">
-                <div className="flex items-end gap-3 mb-1">
-                   <h3 className="text-4xl font-black text-[#E74A33] tracking-tighter drop-shadow-sm">4.2M+</h3>
-                   <span className="text-[10px] uppercase font-black tracking-widest text-[#023761]/50 dark:text-[#5291dd] pb-1.5">Ghost Assets</span>
-                </div>
-                <h4 className="text-lg font-bold text-[#023761] dark:text-white mb-2">Orphaned CIs</h4>
-                <p className="text-sm font-medium text-[#023761]/70 dark:text-slate-300 leading-snug">
-                  Unmanaged endpoints inflating license costs and opening undocumented security vulnerabilities.
-                </p>
-             </div>
-          </div>
+          <TiltCard>
+            <div className="flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border border-white/50 dark:border-[#5291dd]/20 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#E74A33]/40">
+               <div className="w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br from-[#E74A33]/10 to-[#EC9A1E]/5 flex items-center justify-center border border-[#E74A33]/30 group-hover:shadow-[0_0_25px_rgba(231,74,51,0.2)] transition-shadow">
+                 <ServerCrash size={32} className="text-[#E74A33]" />
+               </div>
+               <div className="flex-1">
+                  <div className="flex items-end gap-3 mb-1">
+                     <h3 className="text-4xl font-black text-[#E74A33] tracking-tighter drop-shadow-sm">4.2M+</h3>
+                     <span className="text-[10px] uppercase font-black tracking-widest text-[#023761]/50 dark:text-[#5291dd] pb-1.5">Ghost Assets</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-[#023761] dark:text-white mb-2">Orphaned CIs</h4>
+                  <p className="text-sm font-medium text-[#023761]/70 dark:text-slate-300 leading-snug">
+                    Unmanaged endpoints inflating license costs and opening undocumented security vulnerabilities.
+                  </p>
+               </div>
+            </div>
+          </TiltCard>
 
           {/* Card 2 */}
-          <div className="flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border border-white/50 dark:border-[#5291dd]/20 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#EC9A1E]/40">
-             <div className="w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br from-[#EC9A1E]/10 to-[#f7b516]/5 flex items-center justify-center border border-[#EC9A1E]/30 group-hover:shadow-[0_0_25px_rgba(236,154,30,0.2)] transition-shadow">
-               <Unplug size={32} className="text-[#EC9A1E]" />
-             </div>
-             <div className="flex-1">
-                <div className="flex items-end gap-3 mb-1">
-                   <h3 className="text-4xl font-black text-[#EC9A1E] tracking-tighter drop-shadow-sm">15k+</h3>
-                   <span className="text-[10px] uppercase font-black tracking-widest text-[#023761]/50 dark:text-[#5291dd] pb-1.5">Map Failures</span>
-                </div>
-                <h4 className="text-lg font-bold text-[#023761] dark:text-white mb-2">Broken Relationships</h4>
-                <p className="text-sm font-medium text-[#023761]/70 dark:text-slate-300 leading-snug">
-                  Automated incident routing and change impact analysis immediately fail due to massive reality drift.
-                </p>
-             </div>
-          </div>
+          <TiltCard>
+            <div className="flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border border-white/50 dark:border-[#5291dd]/20 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#EC9A1E]/40">
+               <div className="w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br from-[#EC9A1E]/10 to-[#f7b516]/5 flex items-center justify-center border border-[#EC9A1E]/30 group-hover:shadow-[0_0_25px_rgba(236,154,30,0.2)] transition-shadow">
+                 <Unplug size={32} className="text-[#EC9A1E]" />
+               </div>
+               <div className="flex-1">
+                  <div className="flex items-end gap-3 mb-1">
+                     <h3 className="text-4xl font-black text-[#EC9A1E] tracking-tighter drop-shadow-sm">15k+</h3>
+                     <span className="text-[10px] uppercase font-black tracking-widest text-[#023761]/50 dark:text-[#5291dd] pb-1.5">Map Failures</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-[#023761] dark:text-white mb-2">Broken Relationships</h4>
+                  <p className="text-sm font-medium text-[#023761]/70 dark:text-slate-300 leading-snug">
+                    Automated incident routing and change impact analysis immediately fail due to massive reality drift.
+                  </p>
+               </div>
+            </div>
+          </TiltCard>
 
           {/* Card 3 */}
-          <div className="flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border border-white/50 dark:border-[#5291dd]/20 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#f7b516]/40">
-             <div className="w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br from-[#f7b516]/10 to-[#E74A33]/5 flex items-center justify-center border border-[#f7b516]/30 group-hover:shadow-[0_0_25px_rgba(247,181,22,0.2)] transition-shadow">
-               <LayoutTemplate size={32} className="text-[#f7b516]" />
-             </div>
-             <div className="flex-1">
-                <div className="flex items-end gap-3 mb-1">
-                   <h3 className="text-4xl font-black text-[#E74A33] tracking-tighter drop-shadow-sm">$2.3M</h3>
-                   <span className="text-[10px] uppercase font-black tracking-widest text-[#023761]/50 dark:text-[#5291dd] pb-1.5">Opex Bleed</span>
-                </div>
-                <h4 className="text-lg font-bold text-[#023761] dark:text-white mb-2">Lost Value & Time</h4>
-                <p className="text-sm font-medium text-[#023761]/70 dark:text-slate-300 leading-snug">
-                  Thousands of critical engineering hours eternally wasted on manual, reactionary reconciliation.
-                </p>
-             </div>
-          </div>
+          <TiltCard>
+            <div className="flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border border-white/50 dark:border-[#5291dd]/20 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#f7b516]/40">
+               <div className="w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br from-[#f7b516]/10 to-[#E74A33]/5 flex items-center justify-center border border-[#f7b516]/30 group-hover:shadow-[0_0_25px_rgba(247,181,22,0.2)] transition-shadow">
+                 <LayoutTemplate size={32} className="text-[#f7b516]" />
+               </div>
+               <div className="flex-1">
+                  <div className="flex items-end gap-3 mb-1">
+                     <h3 className="text-4xl font-black text-[#E74A33] tracking-tighter drop-shadow-sm">$2.3M</h3>
+                     <span className="text-[10px] uppercase font-black tracking-widest text-[#023761]/50 dark:text-[#5291dd] pb-1.5">Opex Bleed</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-[#023761] dark:text-white mb-2">Lost Value & Time</h4>
+                  <p className="text-sm font-medium text-[#023761]/70 dark:text-slate-300 leading-snug">
+                    Thousands of critical engineering hours eternally wasted on manual, reactionary reconciliation.
+                  </p>
+               </div>
+            </div>
+          </TiltCard>
 
         </div>
       </div>
