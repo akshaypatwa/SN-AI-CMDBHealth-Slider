@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight, Activity, Sparkles, Sun, Moon } from 'lucide-react'
 import Slide0Title from './components/Slide0Title'
+import Slide0aProblem from './components/Slide0aProblem'
 import Slide1HowItWorks from './components/Slide1HowItWorks'
 import Slide2ImpactBenefits from './components/Slide2ImpactBenefits'
 import Slide3LiveDemo from './components/Slide3LiveDemo'
@@ -8,10 +9,11 @@ import Slide4MeasurableImpact from './components/Slide4MeasurableImpact'
 
 const SLIDES = [
   { id: 0, label: 'Title Deck' },
-  { id: 1, label: 'How It Works' },
-  { id: 2, label: 'Simulator' },
-  { id: 3, label: 'Impact & Benefits' },
-  { id: 4, label: 'Measurable Impact' },
+  { id: 1, label: 'The Problem' },
+  { id: 2, label: 'How It Works' },
+  { id: 3, label: 'Simulator' },
+  { id: 4, label: 'Impact & Benefits' },
+  { id: 5, label: 'Measurable Impact' },
 ]
 
 export default function App() {
@@ -25,6 +27,7 @@ export default function App() {
   // New slide sequence as requested
   const slideComponents = [
     <Slide0Title key="s0" />,
+    <Slide0aProblem key="s0a" />,
     <Slide1HowItWorks key="s1" />,
     <Slide3LiveDemo key="s3" />,
     <Slide2ImpactBenefits key="s2" />,
