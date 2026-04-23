@@ -47,7 +47,7 @@ export default function Slide2ImpactBenefits() {
       <div className="w-full max-w-[1400px] flex flex-col h-full justify-center">
         {/* Heading */}
         <div className="text-center mb-10">
-          <p className="text-sm uppercase tracking-[0.3em] text-indigo-600 dark:text-emerald-400 font-extrabold mb-2">Why It Matters</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[#5291dd] dark:text-[#E74A33] font-extrabold mb-2">Why It Matters</p>
           <h2 className="text-5xl font-black text-slate-900 dark:text-white tracking-tight">Key Value Impact &amp; Benefits</h2>
         </div>
 
@@ -59,15 +59,15 @@ export default function Slide2ImpactBenefits() {
               return (
                 <li
                   key={f.title}
-                  className="flex items-start gap-4 p-4 rounded-2xl bg-white/60 backdrop-blur-sm dark:bg-[#0A101C]/60 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-indigo-50 dark:hover:bg-[#111A2C] border border-white dark:border-slate-800 hover:border-emerald-200 dark:hover:border-emerald-500/50 shadow-md dark:shadow-md transition-all duration-300 cursor-default group"
+                  className="flex items-start gap-4 p-4 rounded-2xl bg-white/60 backdrop-blur-sm dark:bg-[#0A101C]/60 hover:bg-gradient-to-r hover:from-[#5291dd]/10 hover:to-[#5291dd]/5 dark:hover:bg-[#111A2C] border border-white dark:border-slate-800 hover:border-[#5291dd]/30 dark:hover:border-[#E74A33]/50 shadow-md dark:shadow-md transition-all duration-300 cursor-default group"
                   style={{ animationDelay: `${i * 90}ms` }}
                 >
                   {/* Bullet Node */}
-                  <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-indigo-50 dark:bg-emerald-500/10 border border-indigo-100 dark:border-emerald-500/40 text-indigo-600 dark:text-emerald-400 text-sm font-black group-hover:scale-110 transition-transform shadow-sm">
+                  <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-[#5291dd]/5 dark:bg-[#E74A33]/10 border border-[#5291dd]/10 dark:border-[#E74A33]/40 text-[#5291dd] dark:text-[#E74A33] text-sm font-black group-hover:scale-110 transition-transform shadow-sm">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div className="flex items-start gap-4 flex-1 min-w-0">
-                    <Icon size={24} className="text-indigo-600 dark:text-emerald-400 mt-0.5 flex-shrink-0 dark:group-hover:drop-shadow-[0_0_15px_rgba(16,185,129,0.8)] transition-all duration-300" />
+                    <Icon size={24} className="text-[#5291dd] dark:text-[#E74A33] mt-0.5 flex-shrink-0 dark:group-hover:drop-shadow-[0_0_15px_rgba(232,88,15,0.8)] transition-all duration-300" />
                     <div>
                       <p className="text-lg font-black text-slate-900 dark:text-white leading-tight mb-1">{f.title}</p>
                       <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">{f.description}</p>
@@ -81,28 +81,28 @@ export default function Slide2ImpactBenefits() {
           {/* ── Right: Holographic Card ── */}
           <div className="relative flex justify-center items-center h-full pb-6">
             {/* Radial glow behind card */}
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)0%,transparent_60%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.15)0%,transparent_60%)] blur-[60px] pointer-events-none" />
+            <div className="absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,106,158,0.15)0%,transparent_60%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(232,88,15,0.15)0%,transparent_60%)] blur-[60px] pointer-events-none" />
 
             {/* The metrics card */}
-            <div className="relative w-full max-w-[500px] rounded-[2.5rem] overflow-hidden border border-white dark:border-emerald-500/40 bg-white/80 backdrop-blur-md dark:bg-[#02050B] shadow-[0_30px_60px_rgba(0,0,0,0.1),inset_0_2px_4px_rgba(255,255,255,1)] dark:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),0_0_0_1px_rgba(16,185,129,0.2)_inset,0_0_100px_rgba(16,185,129,0.1)] hover:scale-[1.02] transition-transform duration-700">
+            <div className="relative w-full max-w-[500px] rounded-[2.5rem] overflow-hidden border border-white dark:border-[#E74A33]/40 bg-white/80 backdrop-blur-md dark:bg-[#02050B] shadow-[0_30px_60px_rgba(0,0,0,0.1),inset_0_2px_4px_rgba(255,255,255,1)] dark:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),0_0_0_1px_rgba(232,88,15,0.2)_inset,0_0_100px_rgba(232,88,15,0.1)] hover:scale-[1.02] transition-transform duration-700">
               
               {/* Scanline sweep */}
               <div
                 className="absolute inset-x-0 h-24 pointer-events-none z-10 mix-blend-overlay dark:mix-blend-screen"
                 style={{
-                  background: 'linear-gradient(to bottom, transparent, rgba(99,102,241,0.1), transparent)',
+                  background: 'linear-gradient(to bottom, transparent, rgba(0,106,158,0.1), transparent)',
                   animation: 'scanline 3s linear infinite',
                 }}
               />
 
               {/* Card header */}
-              <div className="px-8 pt-8 pb-5 border-b border-indigo-100 dark:border-emerald-500/20 bg-gradient-to-r from-indigo-50/50 to-emerald-50/50 dark:bg-[#0A111F] dark:bg-none">
+              <div className="px-8 pt-8 pb-5 border-b border-[#5291dd]/10 dark:border-[#E74A33]/20 bg-gradient-to-r from-[#5291dd]/50 to-[#5291dd]/10/50 dark:bg-[#0A111F] dark:bg-none">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-emerald-500/20 flex items-center justify-center border border-indigo-100 dark:border-emerald-500/50 shadow-sm dark:shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-                    <ShieldCheck size={24} className="text-emerald-500 dark:text-emerald-400" />
+                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-[#E74A33]/20 flex items-center justify-center border border-[#5291dd]/10 dark:border-[#E74A33]/50 shadow-sm dark:shadow-[0_0_20px_rgba(232,88,15,0.2)]">
+                    <ShieldCheck size={24} className="text-[#E74A33] dark:text-[#E74A33]" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-indigo-600 dark:text-emerald-400 font-extrabold mb-1">Live AI Status Tracking</p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-[#5291dd] dark:text-[#E74A33] font-extrabold mb-1">Live AI Status Tracking</p>
                     <p className="text-slate-900 dark:text-white font-black text-xl tracking-tight">CMDB Health Overview</p>
                   </div>
                 </div>
@@ -114,10 +114,10 @@ export default function Slide2ImpactBenefits() {
                 <div className="flex justify-center mb-8 relative">
                   <div className="relative w-48 h-48">
                     <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                      <circle cx="50" cy="50" r="40" fill="none" className="stroke-slate-200 dark:stroke-[rgba(16,185,129,0.08)]" strokeWidth="8" />
+                      <circle cx="50" cy="50" r="40" fill="none" className="stroke-slate-200 dark:stroke-[rgba(232,88,15,0.08)]" strokeWidth="8" />
                       <circle
                         cx="50" cy="50" r="40" fill="none"
-                        className="stroke-emerald-500 dark:stroke-[#10b981] drop-shadow-[0_0_10px_rgba(16,185,129,0.4)] dark:drop-shadow-[0_0_12px_#10b981] transition-all duration-1000 ease-in-out"
+                        className="stroke-[#E74A33] dark:stroke-[#E74A33] drop-shadow-[0_0_10px_rgba(232,88,15,0.4)] dark:drop-shadow-[0_0_12px_#E8580F] transition-all duration-1000 ease-in-out"
                         strokeWidth="8"
                         strokeLinecap="round"
                         strokeDasharray="251.2"
@@ -126,7 +126,7 @@ export default function Slide2ImpactBenefits() {
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
                       <span className="text-6xl font-black text-slate-900 dark:text-white tracking-tighter drop-shadow-sm dark:drop-shadow-lg">94.7</span>
-                      <span className="text-xs text-emerald-600 dark:text-emerald-400 font-extrabold uppercase tracking-[0.3em] mt-1 bg-white/80 dark:bg-emerald-500/10 px-3 py-0.5 rounded-full border border-emerald-100 dark:border-emerald-500/20 shadow-sm">HEALTH</span>
+                      <span className="text-xs text-[#5291dd] dark:text-[#E74A33] font-extrabold uppercase tracking-[0.3em] mt-1 bg-white/80 dark:bg-[#E74A33]/10 px-3 py-0.5 rounded-full border border-[#5291dd]/20 dark:border-[#E74A33]/20 shadow-sm">HEALTH</span>
                     </div>
                   </div>
                 </div>
@@ -136,11 +136,11 @@ export default function Slide2ImpactBenefits() {
                   {BADGES.map(b => (
                     <div
                       key={b.label}
-                      className="flex-1 flex flex-col items-center gap-1.5 px-4 py-4 rounded-xl bg-white dark:bg-[#0B1322] border border-indigo-100 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-500/60 dark:hover:bg-[#101A2D] transition-colors duration-300 shadow-md dark:shadow-lg"
+                      className="flex-1 flex flex-col items-center gap-1.5 px-4 py-4 rounded-xl bg-white dark:bg-[#0B1322] border border-[#5291dd]/10 dark:border-slate-700 hover:border-[#5291dd]/40 dark:hover:border-[#E74A33]/60 dark:hover:bg-[#101A2D] transition-colors duration-300 shadow-md dark:shadow-lg"
                       style={{ animation: `float 6s ease-in-out infinite`, animationDelay: b.delay }}
                     >
                       <span className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">{b.value}</span>
-                      <span className="text-[9px] uppercase tracking-[0.2em] text-indigo-600 dark:text-emerald-500/80 font-bold text-center leading-tight">{b.label}</span>
+                      <span className="text-[9px] uppercase tracking-[0.2em] text-[#5291dd] dark:text-[#E74A33]/80 font-bold text-center leading-tight">{b.label}</span>
                     </div>
                   ))}
                 </div>
@@ -150,13 +150,13 @@ export default function Slide2ImpactBenefits() {
               <div className="px-8 pb-8 pt-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-[#0B1322]">
                 <div className="flex items-center justify-between mb-2 text-xs">
                   <span className="font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Enterprise Coverage</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-black text-base">96.2%</span>
+                  <span className="text-[#5291dd] dark:text-[#E74A33] font-black text-base">96.2%</span>
                 </div>
                 <div className="h-2 bg-slate-200 dark:bg-slate-900 rounded-full overflow-hidden border border-slate-300/50 dark:border-slate-700/50 shadow-inner">
-                  <div className="h-full w-[96%] bg-gradient-to-r from-emerald-500 via-teal-400 to-indigo-500 dark:from-emerald-600 dark:via-emerald-400 dark:to-cyan-400 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)] dark:shadow-[0_0_15px_#10b981]" />
+                  <div className="h-full w-[96%] bg-gradient-to-r from-[#E74A33] via-[#5291dd] to-[#5291dd]/50 dark:from-[#5291dd] dark:via-[#E74A33] dark:to-[#5291dd] rounded-full shadow-[0_0_10px_rgba(232,88,15,0.5)] dark:shadow-[0_0_15px_#E8580F]" />
                 </div>
                 <div className="flex items-center gap-2 mt-4 justify-center">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)] dark:shadow-[0_0_8px_#10b981]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#E74A33] dark:bg-[#E74A33] animate-pulse shadow-[0_0_8px_rgba(232,88,15,0.6)] dark:shadow-[0_0_8px_#E8580F]" />
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400 tracking-wide">Actively Scanning 48,291 CIs &nbsp;—&nbsp; Last sync: <span className="text-slate-700 dark:text-white font-mono">2 min ago</span></span>
                 </div>
               </div>

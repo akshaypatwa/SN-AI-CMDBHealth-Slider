@@ -33,10 +33,10 @@ const STAGES = [
 ]
 
 const colorMap: Record<string, { ring: string; glow: string; text: string; lightText: string, bg: string; activeLightBg: string; bar: string }> = {
-  emerald: { ring: 'border-emerald-500 dark:ring-emerald-500', glow: 'shadow-[0_15px_30px_rgba(16,185,129,0.3)] dark:shadow-[0_0_35px_#10b981]', text: 'text-emerald-50 dark:text-emerald-400', lightText: 'text-emerald-100', bg: 'bg-emerald-50/50 dark:bg-emerald-500/10', activeLightBg: 'bg-gradient-to-br from-[#065F46] to-[#047857]', bar: 'bg-white dark:bg-emerald-500' },
-  teal:    { ring: 'border-teal-500 dark:ring-teal-500',    glow: 'shadow-[0_15px_30px_rgba(20,184,166,0.3)] dark:shadow-[0_0_35px_#14b8a6]', text: 'text-teal-50 dark:text-teal-400',    lightText: 'text-teal-100', bg: 'bg-teal-50/50 dark:bg-teal-500/10',   activeLightBg: 'bg-gradient-to-br from-[#0F766E] to-[#0F766E]',  bar: 'bg-white dark:bg-teal-500'    },
-  indigo:  { ring: 'border-indigo-500 dark:ring-indigo-500',  glow: 'shadow-[0_15px_30px_rgba(99,102,241,0.3)] dark:shadow-[0_0_35px_#6366f1]', text: 'text-indigo-50 dark:text-indigo-400',  lightText: 'text-indigo-100', bg: 'bg-indigo-50/50 dark:bg-indigo-500/10', activeLightBg: 'bg-gradient-to-br from-[#4338CA] to-[#3730A3]', bar: 'bg-white dark:bg-indigo-500'  },
-  violet:  { ring: 'border-violet-500 dark:ring-violet-500',  glow: 'shadow-[0_15px_30px_rgba(139,92,246,0.3)] dark:shadow-[0_0_35px_#8b5cf6]', text: 'text-violet-50 dark:text-violet-400',  lightText: 'text-violet-100', bg: 'bg-violet-50/50 dark:bg-violet-500/10', activeLightBg: 'bg-gradient-to-br from-[#6D28D9] to-[#5B21B6]', bar: 'bg-white dark:bg-violet-500'  },
+  emerald: { ring: 'border-[#E74A33] dark:ring-[#E74A33]', glow: 'shadow-[0_15px_30px_rgba(231,74,51,0.3)] dark:shadow-[0_0_35px_rgba(231,74,51,0.6)]', text: 'text-white dark:text-white', lightText: 'text-white/90 dark:text-white/90', bg: 'bg-[#E74A33]/10 dark:bg-[#E74A33]/10', activeLightBg: 'bg-[#E74A33]', bar: 'bg-white dark:bg-white' },
+  teal:    { ring: 'border-[#5291dd] dark:ring-[#5291dd]',    glow: 'shadow-[0_15px_30px_rgba(82,145,221,0.3)] dark:shadow-[0_0_35px_rgba(82,145,221,0.6)]', text: 'text-white dark:text-white',    lightText: 'text-white/90 dark:text-white/90', bg: 'bg-[#5291dd]/10 dark:bg-[#5291dd]/10',   activeLightBg: 'bg-[#E74A33]',  bar: 'bg-white dark:bg-white'    },
+  indigo:  { ring: 'border-[#E74A33] dark:ring-[#E74A33]',  glow: 'shadow-[0_15px_30px_rgba(231,74,51,0.3)] dark:shadow-[0_0_35px_rgba(231,74,51,0.6)]', text: 'text-white dark:text-white',  lightText: 'text-white/90 dark:text-white/90', bg: 'bg-[#E74A33]/10 dark:bg-[#E74A33]/10', activeLightBg: 'bg-[#E74A33]', bar: 'bg-white dark:bg-white'  },
+  violet:  { ring: 'border-[#f7b516] dark:ring-[#f7b516]',  glow: 'shadow-[0_15px_30px_rgba(247,181,22,0.3)] dark:shadow-[0_0_35px_rgba(247,181,22,0.6)]', text: 'text-white dark:text-white',  lightText: 'text-white/90 dark:text-white/90', bg: 'bg-[#f7b516]/10 dark:bg-[#f7b516]/10', activeLightBg: 'bg-[#E74A33]', bar: 'bg-white dark:bg-white'  },
 }
 
 export default function Slide1HowItWorks() {
@@ -48,7 +48,7 @@ export default function Slide1HowItWorks() {
     <section className="w-full h-full p-10 flex flex-col items-center justify-center animate-slide-from-bottom overflow-hidden bg-transparent transition-colors duration-500">
       {/* Heading */}
       <div className="text-center mb-12 w-full">
-        <p className="text-sm uppercase tracking-[0.3em] text-indigo-600 dark:text-emerald-400 font-extrabold mb-3">Pipeline Overview</p>
+        <p className="text-sm uppercase tracking-[0.3em] text-[#5291dd] dark:text-[#E74A33] font-extrabold mb-3">Pipeline Overview</p>
         <h2 className="text-5xl font-black text-slate-900 dark:text-white tracking-tight drop-shadow-sm dark:drop-shadow-lg">How It Works</h2>
         <p className="mt-4 text-slate-600 dark:text-slate-300 text-lg max-w-4xl mx-auto leading-relaxed font-medium">
           Four highly intelligent machine-learning stages transform chaotic enterprise CMDB data into a fully verified, actionable, single source of truth.
@@ -59,10 +59,10 @@ export default function Slide1HowItWorks() {
       <div className="relative flex items-start justify-between gap-6 mb-12 w-full max-w-[1400px]">
         {/* Connecting line */}
         <div className="absolute top-12 left-0 right-0 flex items-center px-16 pointer-events-none">
-          <div className="flex-1 h-1 bg-gradient-to-r from-emerald-400/50 via-indigo-400/50 to-violet-400/50 dark:from-emerald-500/30 dark:via-indigo-500/40 dark:to-violet-500/30 rounded-full" />
+          <div className="flex-1 h-1 bg-gradient-to-r from-[#E74A33]/50 via-[#5291dd]/50 to-[#f7b516]/50 dark:from-[#E74A33]/40 dark:via-[#5291dd]/50/40 dark:to-[#f7b516]/40 rounded-full" />
           {/* Animated moving dot */}
           <span
-            className="absolute h-3 w-3 rounded-full bg-emerald-500 dark:bg-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.5)] dark:shadow-[0_0_12px_#10b981]"
+            className="absolute h-3 w-3 rounded-full bg-[#E74A33] dark:bg-[#E74A33] shadow-[0_0_8px_rgba(231,74,51,0.5)] dark:shadow-[0_0_15px_rgba(231,74,51,0.8)]"
             style={{
               left: `calc(${(active / (STAGES.length - 1)) * 100}% - 6px)`,
               transition: 'left 0.7s cubic-bezier(0.22,1,0.36,1)',
@@ -95,7 +95,7 @@ export default function Slide1HowItWorks() {
               <div
                 className={`w-full rounded-2xl p-6 border transition-all duration-300 cursor-pointer h-full min-h-[220px] flex flex-col shadow-lg backdrop-blur-md
                   ${isActive
-                    ? `${c.activeLightBg} dark:bg-[#0B1220] border-transparent dark:border-emerald-500 shadow-[0_20px_40px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.6),inset_0_0_30px_rgba(16,185,129,0.05)] scale-[1.03] ring-1 ring-black/10`
+                    ? `${c.activeLightBg} dark:bg-[#0B1220] border-transparent dark:border-[#E74A33] shadow-[0_20px_40px_rgba(0,0,0,0.2)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.6),inset_0_0_30px_rgba(232,88,15,0.05)] scale-[1.03] ring-1 ring-black/10`
                     : 'bg-white dark:bg-[#060A13]/80 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600'
                   }`}
                 onClick={() => setActive(i)}
@@ -131,7 +131,7 @@ export default function Slide1HowItWorks() {
       <div className="flex justify-center">
         <button
           onClick={advance}
-          className="flex items-center gap-3 px-8 py-3 bg-white hover:bg-slate-50 dark:bg-emerald-500/10 dark:hover:bg-emerald-500/20 border border-slate-200 dark:border-emerald-500/40 dark:hover:border-emerald-400 text-indigo-600 dark:text-emerald-400 text-base font-extrabold uppercase tracking-wider rounded-full transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl dark:hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] group"
+          className="flex items-center gap-3 px-8 py-3 bg-white hover:bg-slate-50 dark:bg-[#E74A33]/10 dark:hover:bg-[#E74A33]/20 border border-slate-200 dark:border-[#E74A33]/40 dark:hover:border-[#E74A33] text-[#5291dd] dark:text-[#E74A33] text-base font-extrabold uppercase tracking-wider rounded-full transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl dark:hover:shadow-[0_0_30px_rgba(232,88,15,0.3)] group"
         >
           Activate Next Phase
           <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
