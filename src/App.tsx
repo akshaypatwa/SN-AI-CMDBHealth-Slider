@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { ChevronLeft, ChevronRight, Activity, Sparkles, Sun, Moon } from 'lucide-react'
 import Slide0Title from './components/Slide0Title'
 import Slide0aProblem from './components/Slide0aProblem'
+import Slide0bSolution from './components/Slide0bSolution'
 import Slide1HowItWorks from './components/Slide1HowItWorks'
 import Slide2ImpactBenefits from './components/Slide2ImpactBenefits'
 import Slide3LiveDemo from './components/Slide3LiveDemo'
@@ -10,10 +11,11 @@ import Slide4MeasurableImpact from './components/Slide4MeasurableImpact'
 const SLIDES = [
   { id: 0, label: 'Title Deck' },
   { id: 1, label: 'The Problem' },
-  { id: 2, label: 'How It Works' },
-  { id: 3, label: 'Simulator' },
-  { id: 4, label: 'Impact & Benefits' },
-  { id: 5, label: 'Measurable Impact' },
+  { id: 2, label: 'The Solution' },
+  { id: 3, label: 'How It Works' },
+  { id: 4, label: 'Simulator' },
+  { id: 5, label: 'Impact & Benefits' },
+  { id: 6, label: 'Measurable Impact' },
 ]
 
 export default function App() {
@@ -28,6 +30,7 @@ export default function App() {
   const slideComponents = [
     <Slide0Title key="s0" />,
     <Slide0aProblem key="s0a" />,
+    <Slide0bSolution key="s0b" />,
     <Slide1HowItWorks key="s1" />,
     <Slide3LiveDemo key="s3" />,
     <Slide2ImpactBenefits key="s2" />,
@@ -94,23 +97,23 @@ export default function App() {
           </header>
 
           {/* ── Outer 3D Floating Controls (Left & Right Center) ── */}
-          <div className="absolute inset-y-0 left-8 z-50 flex items-center pointer-events-auto">
+          <div className="absolute inset-y-0 left-12 z-50 flex items-center pointer-events-auto">
             <button
               onClick={prev}
               disabled={current === 0}
-              className="group flex flex-col items-center justify-center w-16 h-16 bg-white/5 hover:bg-white/20 hover:bg-[#5291dd]/20 disabled:bg-transparent disabled:opacity-30 disabled:border-transparent text-white rounded-full border border-white/20 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-300 overflow-hidden relative"
+              className="group flex flex-col items-center justify-center w-20 h-20 bg-white/10 hover:bg-[#5291dd]/30 disabled:bg-transparent disabled:opacity-30 disabled:border-transparent text-white rounded-full border-2 border-white/40 backdrop-blur-2xl shadow-[0_12px_45px_rgba(0,0,0,0.4)] hover:scale-110 active:scale-95 transition-all duration-300 overflow-hidden relative"
             >
-              <ChevronLeft size={32} className="group-hover:-translate-x-1 transition-transform drop-shadow-lg opacity-80 group-hover:opacity-100" />
+              <ChevronLeft size={44} className="group-hover:-translate-x-1 transition-transform drop-shadow-[0_0_10px_white] opacity-90 group-hover:opacity-100" />
             </button>
           </div>
 
-          <div className="absolute inset-y-0 right-8 z-50 flex items-center pointer-events-auto">
+          <div className="absolute inset-y-0 right-12 z-50 flex items-center pointer-events-auto">
             <button
               onClick={next}
               disabled={current === SLIDES.length - 1}
-              className="group flex flex-col items-center justify-center w-16 h-16 bg-white/5 hover:bg-white/20 hover:bg-[#E74A33]/20 disabled:bg-transparent disabled:opacity-30 disabled:border-transparent text-white rounded-full border border-white/20 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:scale-110 active:scale-95 transition-all duration-300 overflow-hidden relative"
+              className="group flex flex-col items-center justify-center w-20 h-20 bg-white/10 hover:bg-[#E74A33]/30 disabled:bg-transparent disabled:opacity-30 disabled:border-transparent text-white rounded-full border-2 border-white/40 backdrop-blur-2xl shadow-[0_12px_45px_rgba(0,0,0,0.4)] hover:scale-110 active:scale-95 transition-all duration-300 overflow-hidden relative"
             >
-              <ChevronRight size={32} className="group-hover:translate-x-1 transition-transform drop-shadow-lg opacity-80 group-hover:opacity-100" />
+              <ChevronRight size={44} className="group-hover:translate-x-1 transition-transform drop-shadow-[0_0_10px_white] opacity-90 group-hover:opacity-100" />
             </button>
           </div>
 
@@ -154,22 +157,22 @@ export default function App() {
                </div>
 
                {/* ── Beautiful Bottom Pill Pagination (Only Dots remain) ── */}
-               <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-50 flex justify-center pointer-events-auto">
-                 <nav className="flex items-center gap-4 bg-white/95 dark:bg-[#090E18]/90 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/60 rounded-full px-6 py-3 shadow-[0_15px_40px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.05)_inset] transition-colors">
-                     {SLIDES.map((s, i) => (
-                       <button
-                         key={s.id}
-                         onClick={() => setCurrent(i)}
-                         title={s.label}
-                         className={`transition-all duration-500 rounded-full cursor-pointer
-                           ${i === current
-                             ? 'w-10 h-2.5 bg-gradient-to-r from-[#5291dd] to-[#E74A33] shadow-[0_0_12px_rgba(232,88,15,0.4)] dark:shadow-[0_0_15px_rgba(0,106,158,0.8)]'
-                             : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-400'
-                           }`}
-                       />
-                     ))}
-                 </nav>
-               </div>
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 z-50 flex justify-center pointer-events-auto">
+                  <nav className="flex items-center gap-6 bg-white/95 dark:bg-[#090E18]/90 backdrop-blur-xl border-2 border-slate-200 dark:border-slate-700 rounded-full px-8 py-4 shadow-[0_20px_50px_rgba(0,0,0,0.2)] dark:shadow-[0_25px_50px_rgba(0,0,0,0.9)] transition-all">
+                      {SLIDES.map((s, i) => (
+                        <button
+                          key={s.id}
+                          onClick={() => setCurrent(i)}
+                          title={s.label}
+                          className={`transition-all duration-500 rounded-full cursor-pointer
+                            ${i === current
+                              ? 'w-14 h-4 bg-gradient-to-r from-[#5291dd] to-[#E74A33] shadow-[0_0_15px_rgba(231,74,51,0.5)]'
+                              : 'w-4 h-4 bg-slate-300 hover:bg-white border-2 border-transparent hover:border-[#5291dd] dark:bg-slate-700 dark:hover:bg-slate-500'
+                            }`}
+                        />
+                      ))}
+                  </nav>
+                </div>
             </div>
           </main>
         </div>

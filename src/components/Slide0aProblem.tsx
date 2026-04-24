@@ -1,4 +1,4 @@
-import { ServerCrash, Unplug, DatabaseZap, Activity, LayoutTemplate, Database, Server, Ghost, UserX } from 'lucide-react'
+import { ServerCrash, Unplug, DatabaseZap, Activity, LayoutTemplate, Database, Server, Ghost, UserX, Copy, History } from 'lucide-react'
 import { useState, useRef, MouseEvent, ReactNode } from 'react'
 
 function TiltCard({ children, className = '' }: { children: ReactNode, className?: string }) {
@@ -175,22 +175,17 @@ export default function Slide0aProblem() {
 
         </div>
 
-        {/* RIGHT COLUMN: The Impact Cards (Stacked horizontally) */}
-        <div className="flex-1 flex flex-col justify-between gap-6">
-          
+        {/* RIGHT COLUMN: The Impact Cards (Stacked vertically for clarity) */}
+        <div className="flex-1 flex flex-col justify-between gap-4 py-2">
           {/* Card 1 */}
-          <TiltCard>
-            <div className="flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border border-white/50 dark:border-[#5291dd]/20 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#E74A33]/40">
-               <div className="w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br from-[#E74A33]/10 to-[#EC9A1E]/5 flex items-center justify-center border border-[#E74A33]/30 group-hover:shadow-[0_0_25px_rgba(231,74,51,0.2)] transition-shadow">
-                 <ServerCrash size={32} className="text-[#E74A33]" />
+          <TiltCard className="flex-1 min-h-0">
+            <div className="h-full flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border-2 border-[#E74A33]/60 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05),0_0_15px_rgba(231,74,51,0.1)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#E74A33] hover:shadow-[0_15px_35px_rgba(0,0,0,0.05),0_0_20px_rgba(231,74,51,0.2)]">
+               <div className="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-[#E74A33]/10 to-[#EC9A1E]/5 flex items-center justify-center border border-[#E74A33]/30 group-hover:shadow-[0_0_25px_rgba(231,74,51,0.3)] transition-shadow">
+                 <ServerCrash size={28} className="text-[#E74A33]" />
                </div>
                <div className="flex-1">
-                  <div className="flex items-end gap-3 mb-1">
-                     <h3 className="text-4xl font-black text-[#E74A33] tracking-tighter drop-shadow-sm">4.2M+</h3>
-                     <span className="text-[10px] uppercase font-black tracking-widest text-[#023761]/50 dark:text-[#5291dd] pb-1.5">Ghost Assets</span>
-                  </div>
-                  <h4 className="text-lg font-bold text-[#023761] dark:text-white mb-2">Orphaned CIs</h4>
-                  <p className="text-sm font-medium text-[#023761]/70 dark:text-slate-300 leading-snug">
+                  <h3 className="text-3xl font-black text-[#E74A33] tracking-tighter drop-shadow-sm mb-1 uppercase">Orphaned CIs</h3>
+                  <p className="text-xs font-medium text-[#023761]/70 dark:text-slate-300 leading-tight">
                     Unmanaged endpoints inflating license costs and opening undocumented security vulnerabilities.
                   </p>
                </div>
@@ -198,43 +193,49 @@ export default function Slide0aProblem() {
           </TiltCard>
 
           {/* Card 2 */}
-          <TiltCard>
-            <div className="flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border border-white/50 dark:border-[#5291dd]/20 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#EC9A1E]/40">
-               <div className="w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br from-[#EC9A1E]/10 to-[#f7b516]/5 flex items-center justify-center border border-[#EC9A1E]/30 group-hover:shadow-[0_0_25px_rgba(236,154,30,0.2)] transition-shadow">
-                 <Unplug size={32} className="text-[#EC9A1E]" />
+          <TiltCard className="flex-1 min-h-0">
+            <div className="h-full flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border-2 border-[#EC9A1E]/60 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05),0_0_15px_rgba(236,154,30,0.1)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#EC9A1E] hover:shadow-[0_15px_35px_rgba(0,0,0,0.05),0_0_20px_rgba(236,154,30,0.2)]">
+               <div className="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-[#EC9A1E]/10 to-[#f7b516]/5 flex items-center justify-center border border-[#EC9A1E]/30 group-hover:shadow-[0_0_25px_rgba(236,154,30,0.3)] transition-shadow">
+                 <Unplug size={28} className="text-[#EC9A1E]" />
                </div>
                <div className="flex-1">
-                  <div className="flex items-end gap-3 mb-1">
-                     <h3 className="text-4xl font-black text-[#EC9A1E] tracking-tighter drop-shadow-sm">15k+</h3>
-                     <span className="text-[10px] uppercase font-black tracking-widest text-[#023761]/50 dark:text-[#5291dd] pb-1.5">Map Failures</span>
-                  </div>
-                  <h4 className="text-lg font-bold text-[#023761] dark:text-white mb-2">Broken Relationships</h4>
-                  <p className="text-sm font-medium text-[#023761]/70 dark:text-slate-300 leading-snug">
-                    Automated incident routing and change impact analysis immediately fail due to massive reality drift.
+                  <h3 className="text-3xl font-black text-[#EC9A1E] tracking-tighter drop-shadow-sm mb-1 uppercase">Broken Maps</h3>
+                  <p className="text-xs font-medium text-[#023761]/70 dark:text-slate-300 leading-tight">
+                    Automated incident routing and change impact analysis immediately fail due to reality drift.
                   </p>
                </div>
             </div>
           </TiltCard>
 
           {/* Card 3 */}
-          <TiltCard>
-            <div className="flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border border-white/50 dark:border-[#5291dd]/20 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#f7b516]/40">
-               <div className="w-20 h-20 shrink-0 rounded-2xl bg-gradient-to-br from-[#f7b516]/10 to-[#E74A33]/5 flex items-center justify-center border border-[#f7b516]/30 group-hover:shadow-[0_0_25px_rgba(247,181,22,0.2)] transition-shadow">
-                 <LayoutTemplate size={32} className="text-[#f7b516]" />
+          <TiltCard className="flex-1 min-h-0">
+            <div className="h-full flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border-2 border-[#f7b516]/60 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05),0_0_15px_rgba(247,181,22,0.1)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-[#f7b516] hover:shadow-[0_15px_35px_rgba(0,0,0,0.05),0_0_20px_rgba(247,181,22,0.2)]">
+               <div className="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-[#f7b516]/10 to-[#E74A33]/5 flex items-center justify-center border border-[#f7b516]/30 group-hover:shadow-[0_0_25px_rgba(247,181,22,0.3)] transition-shadow">
+                 <LayoutTemplate size={28} className="text-[#f7b516]" />
                </div>
                <div className="flex-1">
-                  <div className="flex items-end gap-3 mb-1">
-                     <h3 className="text-4xl font-black text-[#E74A33] tracking-tighter drop-shadow-sm">$2.3M</h3>
-                     <span className="text-[10px] uppercase font-black tracking-widest text-[#023761]/50 dark:text-[#5291dd] pb-1.5">Opex Bleed</span>
-                  </div>
-                  <h4 className="text-lg font-bold text-[#023761] dark:text-white mb-2">Lost Value & Time</h4>
-                  <p className="text-sm font-medium text-[#023761]/70 dark:text-slate-300 leading-snug">
-                    Thousands of critical engineering hours eternally wasted on manual, reactionary reconciliation.
+                  <h3 className="text-3xl font-black text-[#f7b516] tracking-tighter drop-shadow-sm mb-1 uppercase">Opex Bleed</h3>
+                  <p className="text-xs font-medium text-[#023761]/70 dark:text-slate-300 leading-tight">
+                    Critical engineering resources are perpetually diverted to manual reconciliation efforts.
                   </p>
                </div>
             </div>
           </TiltCard>
 
+          {/* Card 4 - Duplicate & Stale CIs */}
+          <TiltCard className="flex-1 min-h-0">
+            <div className="h-full flex items-center gap-6 bg-white/60 dark:bg-[#023761]/40 backdrop-blur-2xl border-2 border-indigo-500/60 p-6 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.05),0_0_15px_rgba(99,102,241,0.1)] hover:bg-white/90 dark:hover:bg-[#023761]/60 transition-all duration-300 group hover:border-indigo-500 hover:shadow-[0_15px_35px_rgba(0,0,0,0.05),0_0_20px_rgba(99,102,241,0.2)]">
+               <div className="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 flex items-center justify-center border border-indigo-500/30 group-hover:shadow-[0_0_25px_rgba(99,102,241,0.3)] transition-shadow">
+                 <Copy size={28} className="text-indigo-500" />
+               </div>
+               <div className="flex-1">
+                  <h3 className="text-3xl font-black text-indigo-500 tracking-tighter drop-shadow-sm mb-1 uppercase">Duplicates & Stale</h3>
+                  <p className="text-xs font-medium text-[#023761]/70 dark:text-slate-300 leading-tight">
+                    Redundant and inactive records skewing license audits and creating phantom incident alerts.
+                  </p>
+               </div>
+            </div>
+          </TiltCard>
         </div>
       </div>
     </section>

@@ -1,5 +1,7 @@
+import { Activity } from 'lucide-react'
+
 interface StatCardProps {
-  value: string
+  trendLabel: string
   label: string
   description: string
   sparkline: number[]
@@ -14,7 +16,7 @@ const accentMap: Record<string, { text: string; bar: string; glow: string; borde
   violet:  { text: 'text-violet-700 dark:text-violet-400',  bar: 'bg-violet-500',  glow: 'hover:shadow-[0_20px_40px_rgba(139,92,246,0.2)] dark:group-hover:shadow-[0_0_30px_rgba(139,92,246,0.2)]',  border: 'border-violet-100 hover:border-violet-300 dark:border-slate-800 dark:group-hover:border-violet-500/50',  bg: 'bg-violet-50 dark:bg-violet-500/10', fillGradient: 'bg-gradient-to-br from-violet-50 to-white' },
 }
 
-function StatCard({ value, label, description, sparkline, accent, delay = '0ms' }: StatCardProps) {
+function StatCard({ trendLabel, label, description, sparkline, accent, delay = '0ms' }: StatCardProps) {
   const a = accentMap[accent]
   const max = Math.max(...sparkline)
 
@@ -28,12 +30,17 @@ function StatCard({ value, label, description, sparkline, accent, delay = '0ms' 
       {/* Accent dot */}
       <div className={`absolute top-6 right-6 w-3 h-3 rounded-full ${a.bar} opacity-40 dark:opacity-40 group-hover:opacity-100 group-hover:shadow-[0_0_12px_${a.bar}] dark:group-hover:shadow-[0_0_12px_${a.bar}] transition-all duration-300`} />
 
-      {/* Main Metric Value */}
-      <p className={`text-[4rem] font-black ${a.text} leading-none mb-3 tracking-tighter drop-shadow-sm dark:drop-shadow-lg`}>{value}</p>
+      {/* Trend Indicator */}
+      <div className={`flex items-center gap-3 mb-4`}>
+         <div className={`w-12 h-12 rounded-xl ${a.bg} flex items-center justify-center border ${a.border} group-hover:scale-110 transition-transform`}>
+            <Activity className={`${a.text} w-6 h-6`} />
+         </div>
+         <p className={`text-2xl font-black ${a.text} tracking-tight uppercase`}>{trendLabel}</p>
+      </div>
       
       {/* Label and description */}
       <p className="text-slate-900 dark:text-white font-extrabold text-xl mb-2">{label}</p>
-      <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 h-16 line-clamp-3">{description}</p>
+      <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 h-20 line-clamp-3">{description}</p>
 
       {/* Sparkline Graph */}
       <div className="flex items-end gap-1.5 h-16 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
@@ -55,34 +62,34 @@ function StatCard({ value, label, description, sparkline, accent, delay = '0ms' 
 
 const STATS: StatCardProps[] = [
   {
-    value: '94.7%',
+    trendLabel: 'Health Lift',
     label: 'CMDB Health Score',
-    description: 'Up massively from 61% before automation deployment. AI continuously monitors & self-corrects.',
+    description: 'Upward trajectory in data accuracy and compliance via self-healing automation.',
     sparkline: [38, 44, 51, 58, 68, 75, 81, 87, 91, 94],
     accent: 'emerald',
     delay: '0ms',
   },
   {
-    value: '73%',
-    label: 'Fewer Incident Bridges',
-    description: 'Critical P1/P2 incidents linked strictly to stale CI data reduced by nearly three-quarters.',
+    trendLabel: 'Risk Reduction',
+    label: 'Major Incidents',
+    description: 'Drastic reduction in technical debt and major incident bridges linked back to stale or incorrect configuration items.',
     sparkline: [100, 95, 88, 80, 72, 64, 55, 46, 36, 27],
     accent: 'teal',
     delay: '100ms',
   },
   {
-    value: '8.4×',
-    label: 'Faster Remediation',
-    description: 'Average CI fix-time radically dropped from 4.2 days to under 12 hours via auto-routing.',
+    trendLabel: 'Rapid Healing',
+    label: 'CI Remediation',
+    description: 'Exponential acceleration in cycle time for identifying and fixing critical CI drift and orphan records across the infrastructure.',
     sparkline: [20, 30, 40, 55, 70, 90, 110, 130, 155, 168],
     accent: 'indigo',
     delay: '200ms',
   },
   {
-    value: '$2.1M',
-    label: 'Opex Savings',
-    description: 'Completely eliminated manual audit sprints and heavily minimized change-failure costs annually.',
-    sparkline: [80, 160, 290, 440, 620, 840, 1100, 1440, 1780, 2100],
+    trendLabel: 'Opex ROI',
+    label: 'Efficiency Gain',
+    description: 'Resource recovery through elimination of manual audits and minimized change failure rates.',
+    sparkline: [10, 30, 60, 100, 150, 210, 280, 360, 450, 550],
     accent: 'violet',
     delay: '300ms',
   },
