@@ -1,4 +1,4 @@
-import { ServerCrash, Unplug, DatabaseZap, Activity, LayoutTemplate, Database, Server, Ghost, UserX, Copy, History } from 'lucide-react'
+import { ServerCrash, Unplug, DatabaseZap, Activity, LayoutTemplate, Database, Server, Ghost, UserX, Copy } from 'lucide-react'
 import { useState, useRef, MouseEvent, ReactNode } from 'react'
 
 function TiltCard({ children, className = '' }: { children: ReactNode, className?: string }) {

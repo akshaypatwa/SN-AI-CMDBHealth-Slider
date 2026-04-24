@@ -1,4 +1,4 @@
-import { ShieldCheck, Target, Zap, Wrench, RefreshCw, Layers, Cpu, Sparkles, Activity, FileCheck2 } from 'lucide-react'
+import { ShieldCheck, Target, Zap, Wrench, RefreshCw, Layers, Cpu, Sparkles, FileCheck2 } from 'lucide-react'
 import { useState, useRef, MouseEvent, ReactNode } from 'react'
 
 function TiltCard({ children, className = '' }: { children: ReactNode, className?: string }) {
