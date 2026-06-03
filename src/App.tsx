@@ -141,16 +141,11 @@ export default function App() {
                dark:shadow-[inset_0_20px_50px_rgba(0,0,0,0.9),inset_0_0_0_1px_rgba(255,255,255,0.05)] transition-colors duration-500">
                  {slideComponents[current]}
                  
-                 {/* ── EPAM | Novartis Corner Watermark Badge ── */}
+                 {/* ── EPAM Corner Watermark Badge ── */}
                  <div className="absolute top-2 right-4 z-[100] flex items-center justify-center px-8 py-4 rounded-3xl border-b-2 border-r-2 border-white/40 dark:border-[#5291dd]/40 bg-white/80 dark:bg-[#023761]/80 shadow-[0_15px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_15px_40px_rgba(2,55,97,0.8),0_0_20px_rgba(82,145,221,0.2)] pointer-events-auto backdrop-blur-2xl transition-all duration-300 hover:scale-[1.05] group">
                      <div className="flex items-center gap-4 relative z-10">
                        <span className="text-[18px] text-[#5291dd] dark:text-[#5291dd] font-black tracking-[0.2em] font-sans drop-shadow-md">
                          EPAM
-                       </span>
-                       <span className="w-1 h-6 bg-gradient-to-b from-[#5291dd] via-[#E74A33] to-[#EC9A1E] rounded-full shadow-[0_0_8px_rgba(231,74,51,0.5)]"></span>
-                       <span className="text-[22px] text-[#E74A33] dark:text-[#E74A33] font-black tracking-widest flex items-center gap-2 drop-shadow-md group-hover:drop-shadow-[0_0_12px_rgba(231,74,51,0.6)] transition-all" style={{ fontFamily: 'Georgia, serif' }}>
-                         <Sparkles size={16} className="text-[#f7b516]" />
-                         NOVARTIS
                        </span>
                      </div>
                  </div>
